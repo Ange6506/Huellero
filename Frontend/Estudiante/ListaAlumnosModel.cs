@@ -24,6 +24,40 @@ namespace Huellero.Frontend.Estudiante
             ConfigurarEventos();
             _ = CargarDatosAsync().ContinueWith(task => MostrarTodosEstudiantes(), TaskScheduler.FromCurrentSynchronizationContext());
         }
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            string filtro = txtBuscar.Text.Trim().ToLower();
+
+            foreach (DataGridViewRow row in dgvAlumnos.Rows)
+            {
+                if (row.Cells["dataGridViewTextBoxColumn1"].Value != null &&
+                    row.Cells["dataGridViewTextBoxColumn2"].Value != null)
+                {
+                    string nombre = row.Cells["dataGridViewTextBoxColumn1"].Value.ToString().ToLower();
+                    string identificacion = row.Cells["dataGridViewTextBoxColumn2"].Value.ToString().ToLower();
+
+                    row.Visible = nombre.Contains(filtro) || identificacion.Contains(filtro);
+                }
+            }
+        }
+
+        private void TxtBuscar_Enter(object sender, EventArgs e)
+        {
+            if (txtBuscar.Text == "Buscar por nombre o identificación...")
+            {
+                txtBuscar.Text = "";
+                txtBuscar.ForeColor = System.Drawing.Color.Black;
+            }
+        }
+
+        private void TxtBuscar_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtBuscar.Text))
+            {
+                txtBuscar.Text = "Buscar por nombre o identificación...";
+                txtBuscar.ForeColor = System.Drawing.Color.Gray;
+            }
+        }
 
         private void ConfigurarEventos()
         {

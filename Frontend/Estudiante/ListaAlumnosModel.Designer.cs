@@ -18,18 +18,17 @@
         private void InitializeComponent()
         {
             this.dgvAlumnos = new System.Windows.Forms.DataGridView();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Capturar_Huella = new System.Windows.Forms.DataGridViewImageColumn(); // Cambio aquí
-
+            this.Capturar_Huella = new System.Windows.Forms.DataGridViewImageColumn();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
             this.SuspendLayout();
-
             // 
             // dgvAlumnos
             // 
@@ -37,14 +36,14 @@
             this.dgvAlumnos.AllowUserToDeleteRows = false;
             this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAlumnos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-                this.dataGridViewTextBoxColumn1,
-                this.dataGridViewTextBoxColumn2,
-                this.dataGridViewTextBoxColumn3,
-                this.dataGridViewTextBoxColumn4,
-                this.dataGridViewTextBoxColumn5,
-                this.Editar,
-                this.Capturar_Huella});
-            this.dgvAlumnos.Location = new System.Drawing.Point(9, 70);
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.Editar,
+            this.Capturar_Huella});
+            this.dgvAlumnos.Location = new System.Drawing.Point(42, 96);
             this.dgvAlumnos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvAlumnos.Name = "dgvAlumnos";
             this.dgvAlumnos.ReadOnly = true;
@@ -52,72 +51,86 @@
             this.dgvAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAlumnos.Size = new System.Drawing.Size(707, 325);
             this.dgvAlumnos.TabIndex = 1;
-
             // 
-            // txtBuscar
-            // 
-            this.txtBuscar.ForeColor = System.Drawing.Color.Gray;
-            this.txtBuscar.Location = new System.Drawing.Point(278, 29);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(2);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(301, 20);
-            this.txtBuscar.TabIndex = 0;
-            this.txtBuscar.Text = "Buscar por nombre o identificación...";
-
-            // 
-            // Columnas de la tabla
+            // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.HeaderText = "Nombre Completo";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
             this.dataGridViewTextBoxColumn2.HeaderText = "Identificación";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
-
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
             this.dataGridViewTextBoxColumn3.HeaderText = "Programa";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
-
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
             this.dataGridViewTextBoxColumn4.HeaderText = "Fecha de Inicio";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
-
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
             this.dataGridViewTextBoxColumn5.HeaderText = "Fecha Final";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
-
             // 
-            // Columna de Edición
+            // Editar
             // 
             this.Editar.HeaderText = "Editar";
             this.Editar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.Editar.Name = "Editar";
             this.Editar.ReadOnly = true;
-
             // 
-            // Columna de Captura de Huella (Corregida)
+            // Capturar_Huella
             // 
             this.Capturar_Huella.HeaderText = "Capturar Huella";
+            this.Capturar_Huella.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.Capturar_Huella.Name = "Capturar_Huella";
             this.Capturar_Huella.ReadOnly = true;
-            this.Capturar_Huella.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom; // Para que la imagen se ajuste correctamente
-
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.ForeColor = System.Drawing.Color.Gray;
+            this.txtBuscar.Location = new System.Drawing.Point(448, 42);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(2);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(301, 20);
+            this.txtBuscar.TabIndex = 0;
+            this.txtBuscar.Text = "Buscar por nombre o identificación...";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(39, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(140, 18);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Lista de Estudiantes";
             // 
             // ListaAlumnosModel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(808, 481);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.dgvAlumnos);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ListaAlumnosModel";
             this.Text = "Lista de Estudiantes";
-
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -127,5 +140,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewImageColumn Editar;
         private System.Windows.Forms.DataGridViewImageColumn Capturar_Huella; // Cambio aquí
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -2,6 +2,7 @@
 using Huellero.Frontend.Asistencia;
 using Huellero.Frontend.Estudiante;
 using Huellero.Frontend.Programa;
+using Huellero.Frontend.Usuario;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -46,8 +47,8 @@ namespace Huellero
 
         private void btnAgregarPrograma_Click(object sender, EventArgs e)
         {
-            AgregarProgramaForm agregarUsuario = new AgregarProgramaForm();
-            agregarUsuario.ShowDialog();
+            AgregarProgramaForm agregarPrograma = new AgregarProgramaForm();
+            agregarPrograma.ShowDialog();
         }
 
         private void btnAgregarRol_Click(object sender, EventArgs e)
@@ -77,5 +78,10 @@ namespace Huellero
             lisPrograma.ShowDialog();
         }
 
+        private void BtnListUser_Click(object sender, EventArgs e)
+        {
+            ListaUsuarioModel lisUsuario = new ListaUsuarioModel();
+            lisUsuario.ShowDialog();
+        }
     }
 }

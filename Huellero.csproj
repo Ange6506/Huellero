@@ -410,12 +410,14 @@
   <ItemGroup>
     <Compile Include="Controllers\Get\GetAsistencia.cs" />
     <Compile Include="Controllers\Get\GetEstudiante.cs" />
+    <Compile Include="Controllers\Get\GetUsuario.cs" />
     <Compile Include="Controllers\Login\Login.cs" />
     <Compile Include="Controllers\Post\AddAsistencia.cs" />
     <Compile Include="Controllers\Post\AddRol.cs" />
     <Compile Include="Controllers\Update\HuellaUpdate.cs" />
     <Compile Include="Controllers\Update\UpdateEstudiante.cs" />
     <Compile Include="Controllers\Update\UpdatePrograma.cs" />
+    <Compile Include="Controllers\Update\UpdateUsuarioController.cs" />
     <Compile Include="Frontend\Asistencia\ListaAsistenciaModel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -505,6 +507,18 @@
     <Compile Include="Frontend\Asistencia\frmVerificar.Designer.cs">
       <DependentUpon>frmVerificar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frontend\Usuario\ListaUsuarioModel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frontend\Usuario\ListaUsuarioModel.Designer.cs">
+      <DependentUpon>ListaUsuarioModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\Usuario\UpdateUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frontend\Usuario\UpdateUsuario.Designer.cs">
+      <DependentUpon>UpdateUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -548,6 +562,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistrar.resx">
       <DependentUpon>frmRegistrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frontend\Usuario\ListaUsuarioModel.resx">
+      <DependentUpon>ListaUsuarioModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frontend\Usuario\UpdateUsuario.resx">
+      <DependentUpon>UpdateUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="main.resx">
       <DependentUpon>main.cs</DependentUpon>

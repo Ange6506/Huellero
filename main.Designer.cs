@@ -37,6 +37,7 @@
             this.btnListEstudiante = new System.Windows.Forms.Button();
             this.btnListAsistencia = new System.Windows.Forms.Button();
             this.btnListPrograma = new System.Windows.Forms.Button();
+            this.btnListUser = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnRegistrar
@@ -120,9 +121,19 @@
             this.btnListPrograma.Text = "Lista Programa";
             this.btnListPrograma.Click += new System.EventHandler(this.BtnListPrograma_Click);
             // 
+            // btnListUser
+            // 
+            this.btnListUser.Location = new System.Drawing.Point(341, 161);
+            this.btnListUser.Name = "btnListUser";
+            this.btnListUser.Size = new System.Drawing.Size(200, 30);
+            this.btnListUser.TabIndex = 9;
+            this.btnListUser.Text = "Lista Usuario";
+            this.btnListUser.Click += new System.EventHandler(this.BtnListUser_Click);
+            // 
             // main
             // 
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnListUser);
             this.Controls.Add(this.btnListPrograma);
             this.Controls.Add(this.btnListAsistencia);
             this.Controls.Add(this.btnListEstudiante);
@@ -148,6 +159,7 @@
         private System.Windows.Forms.Button btnListEstudiante;
         private System.Windows.Forms.Button btnListAsistencia;
         private System.Windows.Forms.Button btnListPrograma;
+        private System.Windows.Forms.Button btnListUser;
     }
 }
 

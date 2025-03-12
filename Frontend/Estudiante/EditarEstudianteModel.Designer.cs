@@ -55,6 +55,7 @@
             this.btnEspecialidad = new System.Windows.Forms.TextBox();
             this.btnDiaSemana = new System.Windows.Forms.TextBox();
             this.btnSemestre = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudHoraPorDia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSemanaRotacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHorasSemanales)).BeginInit();
@@ -63,7 +64,7 @@
             // lblPrograma
             // 
             this.lblPrograma.AutoSize = true;
-            this.lblPrograma.Location = new System.Drawing.Point(20, 20);
+            this.lblPrograma.Location = new System.Drawing.Point(67, 101);
             this.lblPrograma.Name = "lblPrograma";
             this.lblPrograma.Size = new System.Drawing.Size(55, 13);
             this.lblPrograma.TabIndex = 0;
@@ -71,7 +72,7 @@
             // 
             // cmbPrograma
             // 
-            this.cmbPrograma.Location = new System.Drawing.Point(180, 20);
+            this.cmbPrograma.Location = new System.Drawing.Point(70, 118);
             this.cmbPrograma.Name = "cmbPrograma";
             this.cmbPrograma.Size = new System.Drawing.Size(121, 21);
             this.cmbPrograma.TabIndex = 1;
@@ -79,7 +80,7 @@
             // lblAsignatura
             // 
             this.lblAsignatura.AutoSize = true;
-            this.lblAsignatura.Location = new System.Drawing.Point(20, 60);
+            this.lblAsignatura.Location = new System.Drawing.Point(212, 101);
             this.lblAsignatura.Name = "lblAsignatura";
             this.lblAsignatura.Size = new System.Drawing.Size(60, 13);
             this.lblAsignatura.TabIndex = 2;
@@ -88,7 +89,7 @@
             // lblEspecialidad
             // 
             this.lblEspecialidad.AutoSize = true;
-            this.lblEspecialidad.Location = new System.Drawing.Point(20, 100);
+            this.lblEspecialidad.Location = new System.Drawing.Point(67, 154);
             this.lblEspecialidad.Name = "lblEspecialidad";
             this.lblEspecialidad.Size = new System.Drawing.Size(70, 13);
             this.lblEspecialidad.TabIndex = 4;
@@ -97,7 +98,7 @@
             // lblDiaSemana
             // 
             this.lblDiaSemana.AutoSize = true;
-            this.lblDiaSemana.Location = new System.Drawing.Point(20, 140);
+            this.lblDiaSemana.Location = new System.Drawing.Point(212, 154);
             this.lblDiaSemana.Name = "lblDiaSemana";
             this.lblDiaSemana.Size = new System.Drawing.Size(70, 13);
             this.lblDiaSemana.TabIndex = 6;
@@ -106,7 +107,7 @@
             // lblHoraPorDia
             // 
             this.lblHoraPorDia.AutoSize = true;
-            this.lblHoraPorDia.Location = new System.Drawing.Point(20, 180);
+            this.lblHoraPorDia.Location = new System.Drawing.Point(67, 208);
             this.lblHoraPorDia.Name = "lblHoraPorDia";
             this.lblHoraPorDia.Size = new System.Drawing.Size(77, 13);
             this.lblHoraPorDia.TabIndex = 8;
@@ -115,7 +116,7 @@
             // nudHoraPorDia
             // 
             this.nudHoraPorDia.BackColor = System.Drawing.Color.White;
-            this.nudHoraPorDia.Location = new System.Drawing.Point(180, 180);
+            this.nudHoraPorDia.Location = new System.Drawing.Point(71, 224);
             this.nudHoraPorDia.Name = "nudHoraPorDia";
             this.nudHoraPorDia.Size = new System.Drawing.Size(120, 20);
             this.nudHoraPorDia.TabIndex = 9;
@@ -123,7 +124,7 @@
             // lblSemanaRotacion
             // 
             this.lblSemanaRotacion.AutoSize = true;
-            this.lblSemanaRotacion.Location = new System.Drawing.Point(20, 220);
+            this.lblSemanaRotacion.Location = new System.Drawing.Point(212, 208);
             this.lblSemanaRotacion.Name = "lblSemanaRotacion";
             this.lblSemanaRotacion.Size = new System.Drawing.Size(95, 13);
             this.lblSemanaRotacion.TabIndex = 10;
@@ -131,7 +132,7 @@
             // 
             // nudSemanaRotacion
             // 
-            this.nudSemanaRotacion.Location = new System.Drawing.Point(180, 220);
+            this.nudSemanaRotacion.Location = new System.Drawing.Point(216, 224);
             this.nudSemanaRotacion.Name = "nudSemanaRotacion";
             this.nudSemanaRotacion.Size = new System.Drawing.Size(120, 20);
             this.nudSemanaRotacion.TabIndex = 11;
@@ -139,7 +140,7 @@
             // lblSemestre
             // 
             this.lblSemestre.AutoSize = true;
-            this.lblSemestre.Location = new System.Drawing.Point(20, 260);
+            this.lblSemestre.Location = new System.Drawing.Point(68, 264);
             this.lblSemestre.Name = "lblSemestre";
             this.lblSemestre.Size = new System.Drawing.Size(110, 13);
             this.lblSemestre.TabIndex = 12;
@@ -148,7 +149,7 @@
             // lblHorasSemanales
             // 
             this.lblHorasSemanales.AutoSize = true;
-            this.lblHorasSemanales.Location = new System.Drawing.Point(20, 300);
+            this.lblHorasSemanales.Location = new System.Drawing.Point(214, 264);
             this.lblHorasSemanales.Name = "lblHorasSemanales";
             this.lblHorasSemanales.Size = new System.Drawing.Size(93, 13);
             this.lblHorasSemanales.TabIndex = 14;
@@ -156,7 +157,7 @@
             // 
             // nudHorasSemanales
             // 
-            this.nudHorasSemanales.Location = new System.Drawing.Point(180, 300);
+            this.nudHorasSemanales.Location = new System.Drawing.Point(217, 281);
             this.nudHorasSemanales.Name = "nudHorasSemanales";
             this.nudHorasSemanales.Size = new System.Drawing.Size(120, 20);
             this.nudHorasSemanales.TabIndex = 15;
@@ -164,7 +165,7 @@
             // lblFechaInicio
             // 
             this.lblFechaInicio.AutoSize = true;
-            this.lblFechaInicio.Location = new System.Drawing.Point(20, 340);
+            this.lblFechaInicio.Location = new System.Drawing.Point(67, 321);
             this.lblFechaInicio.Name = "lblFechaInicio";
             this.lblFechaInicio.Size = new System.Drawing.Size(68, 13);
             this.lblFechaInicio.TabIndex = 16;
@@ -172,15 +173,15 @@
             // 
             // dtpFechaInicio
             // 
-            this.dtpFechaInicio.Location = new System.Drawing.Point(180, 340);
+            this.dtpFechaInicio.Location = new System.Drawing.Point(70, 337);
             this.dtpFechaInicio.Name = "dtpFechaInicio";
-            this.dtpFechaInicio.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaInicio.Size = new System.Drawing.Size(121, 20);
             this.dtpFechaInicio.TabIndex = 17;
             // 
             // lblFechaFin
             // 
             this.lblFechaFin.AutoSize = true;
-            this.lblFechaFin.Location = new System.Drawing.Point(20, 380);
+            this.lblFechaFin.Location = new System.Drawing.Point(215, 321);
             this.lblFechaFin.Name = "lblFechaFin";
             this.lblFechaFin.Size = new System.Drawing.Size(57, 13);
             this.lblFechaFin.TabIndex = 18;
@@ -188,14 +189,14 @@
             // 
             // dtpFechaFin
             // 
-            this.dtpFechaFin.Location = new System.Drawing.Point(180, 380);
+            this.dtpFechaFin.Location = new System.Drawing.Point(215, 337);
             this.dtpFechaFin.Name = "dtpFechaFin";
-            this.dtpFechaFin.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaFin.Size = new System.Drawing.Size(122, 20);
             this.dtpFechaFin.TabIndex = 19;
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(80, 420);
+            this.btnGuardar.Location = new System.Drawing.Point(116, 405);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 20;
@@ -204,7 +205,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(200, 420);
+            this.btnCancelar.Location = new System.Drawing.Point(216, 405);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 21;
@@ -213,36 +214,48 @@
             // 
             // btnAsignatura
             // 
-            this.btnAsignatura.Location = new System.Drawing.Point(180, 60);
+            this.btnAsignatura.Location = new System.Drawing.Point(215, 118);
             this.btnAsignatura.Name = "btnAsignatura";
             this.btnAsignatura.Size = new System.Drawing.Size(121, 20);
             this.btnAsignatura.TabIndex = 23;
             // 
             // btnEspecialidad
             // 
-            this.btnEspecialidad.Location = new System.Drawing.Point(180, 100);
+            this.btnEspecialidad.Location = new System.Drawing.Point(70, 170);
             this.btnEspecialidad.Name = "btnEspecialidad";
             this.btnEspecialidad.Size = new System.Drawing.Size(120, 20);
             this.btnEspecialidad.TabIndex = 22;
             // 
             // btnDiaSemana
             // 
-            this.btnDiaSemana.Location = new System.Drawing.Point(180, 140);
+            this.btnDiaSemana.Location = new System.Drawing.Point(215, 170);
             this.btnDiaSemana.Name = "btnDiaSemana";
             this.btnDiaSemana.Size = new System.Drawing.Size(120, 20);
             this.btnDiaSemana.TabIndex = 24;
             // 
             // btnSemestre
             // 
-            this.btnSemestre.Location = new System.Drawing.Point(180, 260);
+            this.btnSemestre.Location = new System.Drawing.Point(70, 280);
             this.btnSemestre.Name = "btnSemestre";
             this.btnSemestre.Size = new System.Drawing.Size(120, 20);
-        
-
+            this.btnSemestre.TabIndex = 25;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label1.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label1.Location = new System.Drawing.Point(85, 56);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(222, 20);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Editar Información del Alumno";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // EditarEstudianteModel
             // 
-            this.ClientSize = new System.Drawing.Size(400, 480);
+            this.ClientSize = new System.Drawing.Size(395, 472);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDiaSemana);
             this.Controls.Add(this.btnSemestre);
             this.Controls.Add(this.btnAsignatura);
@@ -280,7 +293,6 @@
         private System.Windows.Forms.TextBox btnEspecialidad;
         private System.Windows.Forms.TextBox btnDiaSemana;
         private System.Windows.Forms.TextBox btnSemestre = new System.Windows.Forms.TextBox();
-
-
+        private System.Windows.Forms.Label label1;
     }
 }

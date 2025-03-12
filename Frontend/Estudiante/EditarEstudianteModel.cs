@@ -119,5 +119,10 @@ namespace Huellero.Frontend.Estudiante
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

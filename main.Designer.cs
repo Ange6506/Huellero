@@ -34,7 +34,6 @@
             this.btnFormularioAlumno = new System.Windows.Forms.Button();
             this.btnAgregarUsuario = new System.Windows.Forms.Button();
             this.btnAgregarPrograma = new System.Windows.Forms.Button();
-            this.btnAgregarRol = new System.Windows.Forms.Button();
             this.btnListEstudiante = new System.Windows.Forms.Button();
             this.btnListAsistencia = new System.Windows.Forms.Button();
             this.btnListPrograma = new System.Windows.Forms.Button();
@@ -86,15 +85,6 @@
             this.btnAgregarPrograma.Text = "Formulario Programa";
             this.btnAgregarPrograma.Click += new System.EventHandler(this.btnAgregarPrograma_Click);
             // 
-            // btnAgregarRol
-            // 
-            this.btnAgregarRol.Location = new System.Drawing.Point(428, 302);
-            this.btnAgregarRol.Name = "btnAgregarRol";
-            this.btnAgregarRol.Size = new System.Drawing.Size(136, 30);
-            this.btnAgregarRol.TabIndex = 5;
-            this.btnAgregarRol.Text = "Add Rol";
-            this.btnAgregarRol.Click += new System.EventHandler(this.btnAgregarRol_Click);
-            // 
             // btnListEstudiante
             // 
             this.btnListEstudiante.Location = new System.Drawing.Point(260, 243);
@@ -140,7 +130,6 @@
             this.Controls.Add(this.btnListPrograma);
             this.Controls.Add(this.btnListAsistencia);
             this.Controls.Add(this.btnListEstudiante);
-            this.Controls.Add(this.btnAgregarRol);
             this.Controls.Add(this.btnAgregarPrograma);
             this.Controls.Add(this.btnAgregarUsuario);
             this.Controls.Add(this.btnRegistrar);
@@ -158,7 +147,6 @@
         private System.Windows.Forms.Button btnFormularioAlumno;
         private System.Windows.Forms.Button btnAgregarUsuario;
         private System.Windows.Forms.Button btnAgregarPrograma;
-        private System.Windows.Forms.Button btnAgregarRol;
         private System.Windows.Forms.Button btnListEstudiante;
         private System.Windows.Forms.Button btnListAsistencia;
         private System.Windows.Forms.Button btnListPrograma;

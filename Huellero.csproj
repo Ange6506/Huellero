@@ -460,12 +460,6 @@
     <Compile Include="Frontend\Programa\UpdatePrograma.Designer.cs">
       <DependentUpon>UpdatePrograma.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frontend\Usuario\AgregarRolForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frontend\Usuario\AgregarRolForm.Designer.cs">
-      <DependentUpon>AgregarRolForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Frontend\Usuario\AgregarUsuarioForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -553,9 +547,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frontend\Programa\UpdatePrograma.resx">
       <DependentUpon>UpdatePrograma.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frontend\Usuario\AgregarRolForm.resx">
-      <DependentUpon>AgregarRolForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frontend\Usuario\AgregarUsuarioForm.resx">
       <DependentUpon>AgregarUsuarioForm.cs</DependentUpon>

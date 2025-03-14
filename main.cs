@@ -22,7 +22,7 @@ namespace Huellero
         {
             // Deshabilitar todos los botones por defecto
             btnAgregarUsuario.Enabled = false;
-            btnAgregarRol.Enabled = false;
+  
             btnAgregarPrograma.Enabled = false;
             btnListAsistencia.Enabled = false;
             btnListPrograma.Enabled = false;
@@ -36,7 +36,6 @@ namespace Huellero
             if (Login.IdRolUsuario == 1) // Administrador
             {
                 btnAgregarUsuario.Enabled = true;
-                btnAgregarRol.Enabled = true;
                 btnAgregarPrograma.Enabled = true;
                 btnListPrograma.Enabled = true;
                 btnListEstudiante.Enabled = true;
@@ -82,11 +81,7 @@ namespace Huellero
             agregarPrograma.ShowDialog();
         }
 
-        private void btnAgregarRol_Click(object sender, EventArgs e)
-        {
-            AgregarRolForm agregarRol = new AgregarRolForm();
-            agregarRol.ShowDialog();
-        }
+       
         private void btnListEstudiante_Click(object sender, EventArgs e)
         {
             ListaAlumnosModel lisAlumno = new ListaAlumnosModel();

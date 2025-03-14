@@ -36,7 +36,7 @@
             // pictureBox3
             // 
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.Location = new System.Drawing.Point(543, 12);
+            this.pictureBox3.Location = new System.Drawing.Point(575, -1);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(37, 31);
             this.pictureBox3.TabIndex = 30;
@@ -49,11 +49,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(808, 450);
+            this.ClientSize = new System.Drawing.Size(612, 416);
             this.Controls.Add(this.pictureBox3);
             this.Name = "CapturaHuella";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "capturaHuella";
+            this.Load += new System.EventHandler(this.CapturaHuella_Load);
             this.Controls.SetChildIndex(this.pictureBox3, 0);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);

@@ -80,5 +80,10 @@ namespace Huellero
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
+
+        private void CapturaHuella_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

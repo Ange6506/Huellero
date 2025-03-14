@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main));
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnVerificar = new System.Windows.Forms.Button();
             this.btnFormularioAlumno = new System.Windows.Forms.Button();
@@ -41,7 +42,7 @@
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(30, 30);
+            this.btnRegistrar.Location = new System.Drawing.Point(30, 272);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(200, 30);
             this.btnRegistrar.TabIndex = 0;
@@ -50,7 +51,7 @@
             // 
             // btnVerificar
             // 
-            this.btnVerificar.Location = new System.Drawing.Point(30, 70);
+            this.btnVerificar.Location = new System.Drawing.Point(30, 30);
             this.btnVerificar.Name = "btnVerificar";
             this.btnVerificar.Size = new System.Drawing.Size(200, 30);
             this.btnVerificar.TabIndex = 1;
@@ -59,7 +60,7 @@
             // 
             // btnFormularioAlumno
             // 
-            this.btnFormularioAlumno.Location = new System.Drawing.Point(30, 110);
+            this.btnFormularioAlumno.Location = new System.Drawing.Point(351, 89);
             this.btnFormularioAlumno.Name = "btnFormularioAlumno";
             this.btnFormularioAlumno.Size = new System.Drawing.Size(200, 30);
             this.btnFormularioAlumno.TabIndex = 2;
@@ -68,7 +69,7 @@
             // 
             // btnAgregarUsuario
             // 
-            this.btnAgregarUsuario.Location = new System.Drawing.Point(30, 161);
+            this.btnAgregarUsuario.Location = new System.Drawing.Point(351, 30);
             this.btnAgregarUsuario.Name = "btnAgregarUsuario";
             this.btnAgregarUsuario.Size = new System.Drawing.Size(200, 30);
             this.btnAgregarUsuario.TabIndex = 3;
@@ -77,7 +78,7 @@
             // 
             // btnAgregarPrograma
             // 
-            this.btnAgregarPrograma.Location = new System.Drawing.Point(30, 212);
+            this.btnAgregarPrograma.Location = new System.Drawing.Point(351, 147);
             this.btnAgregarPrograma.Name = "btnAgregarPrograma";
             this.btnAgregarPrograma.Size = new System.Drawing.Size(200, 30);
             this.btnAgregarPrograma.TabIndex = 4;
@@ -86,7 +87,7 @@
             // 
             // btnAgregarRol
             // 
-            this.btnAgregarRol.Location = new System.Drawing.Point(30, 263);
+            this.btnAgregarRol.Location = new System.Drawing.Point(351, 212);
             this.btnAgregarRol.Name = "btnAgregarRol";
             this.btnAgregarRol.Size = new System.Drawing.Size(200, 30);
             this.btnAgregarRol.TabIndex = 5;
@@ -95,7 +96,7 @@
             // 
             // btnListEstudiante
             // 
-            this.btnListEstudiante.Location = new System.Drawing.Point(341, 30);
+            this.btnListEstudiante.Location = new System.Drawing.Point(30, 147);
             this.btnListEstudiante.Name = "btnListEstudiante";
             this.btnListEstudiante.Size = new System.Drawing.Size(200, 30);
             this.btnListEstudiante.TabIndex = 6;
@@ -104,7 +105,7 @@
             // 
             // btnListAsistencia
             // 
-            this.btnListAsistencia.Location = new System.Drawing.Point(341, 70);
+            this.btnListAsistencia.Location = new System.Drawing.Point(30, 212);
             this.btnListAsistencia.Name = "btnListAsistencia";
             this.btnListAsistencia.Size = new System.Drawing.Size(200, 30);
             this.btnListAsistencia.TabIndex = 7;
@@ -113,7 +114,7 @@
             // 
             // btnListPrograma
             // 
-            this.btnListPrograma.Location = new System.Drawing.Point(341, 110);
+            this.btnListPrograma.Location = new System.Drawing.Point(30, 89);
             this.btnListPrograma.Name = "btnListPrograma";
             this.btnListPrograma.Size = new System.Drawing.Size(200, 30);
             this.btnListPrograma.TabIndex = 8;
@@ -122,7 +123,8 @@
             // 
             // main
             // 
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(873, 514);
             this.Controls.Add(this.btnListPrograma);
             this.Controls.Add(this.btnListAsistencia);
             this.Controls.Add(this.btnListEstudiante);

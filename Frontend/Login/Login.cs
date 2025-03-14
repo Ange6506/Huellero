@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-using Huellero.Controllers.Login;
 
 namespace Huellero.Frontend.Login
 {
@@ -10,7 +10,29 @@ namespace Huellero.Frontend.Login
         public Login()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None; // Quita el borde del formulario
+            this.Region = new Region(RoundedRectangle(this.ClientRectangle, 20)); // Aplica esquinas redondeadas
+
         }
+        private GraphicsPath RoundedRectangle(Rectangle bounds, int radius)
+        {
+            GraphicsPath path = new GraphicsPath();
+            int diameter = radius * 2;
+            Rectangle arc = new Rectangle(bounds.Location, new Size(diameter, diameter));
+
+            // Esquinas redondeadas
+            path.AddArc(arc, 180, 90);
+            arc.X = bounds.Right - diameter;
+            path.AddArc(arc, 270, 90);
+            arc.Y = bounds.Bottom - diameter;
+            path.AddArc(arc, 0, 90);
+            arc.X = bounds.Left;
+            path.AddArc(arc, 90, 90);
+
+            path.CloseFigure();
+            return path;
+        }
+
 
         private void RemoverPlaceholder(object sender, EventArgs e)
         {

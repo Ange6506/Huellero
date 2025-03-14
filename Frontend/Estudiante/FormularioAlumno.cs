@@ -175,5 +175,7 @@ namespace Huellero
             captura.OnTemplate += this.ProcesarTemplate;
             captura.ShowDialog();
         }
+
+  
     }
 }

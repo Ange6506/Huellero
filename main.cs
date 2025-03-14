@@ -28,8 +28,9 @@ namespace Huellero
             btnListPrograma.Enabled = false;
             btnListEstudiante.Enabled = false;
             btnVerificar.Enabled = false;
-            btnRegistrar.Enabled = false;
+            btnRegistrar.Visible = false;
             btnFormularioAlumno.Enabled = false;
+     
 
             // Verificar el rol del usuario autenticado
             if (Login.IdRolUsuario == 1) // Administrador
@@ -86,7 +87,6 @@ namespace Huellero
             AgregarRolForm agregarRol = new AgregarRolForm();
             agregarRol.ShowDialog();
         }
-
         private void btnListEstudiante_Click(object sender, EventArgs e)
         {
             ListaAlumnosModel lisAlumno = new ListaAlumnosModel();

@@ -527,6 +527,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Frontend\Asistencia\frmVerificar.resx">
+      <DependentUpon>frmVerificar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frontend\Asistencia\ListaAsistenciaModel.resx">
       <DependentUpon>ListaAsistenciaModel.cs</DependentUpon>
     </EmbeddedResource>

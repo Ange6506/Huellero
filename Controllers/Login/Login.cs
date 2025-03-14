@@ -8,7 +8,7 @@ namespace Huellero.Controllers.Login
         private readonly string connectionString = "Host=localhost;Username=postgres;Password=Admin;Database=RegisterAttendance;CommandTimeout=30";
 
         public static string UsuarioActual { get; private set; } // Usuario autenticado
-        public static int IdRolUsuario { get; private set; } // ID del rol del usuario autenticado
+public static int IdRolUsuario { get; set; }
 
         public bool IniciarSesion(string username, string password)
         {

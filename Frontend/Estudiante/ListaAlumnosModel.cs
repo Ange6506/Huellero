@@ -7,6 +7,7 @@ using System.IO;
 using DPFP;
 using Huellero.Controllers;
 using Huellero.Controllers.Update;
+using Huellero.Controllers.Login;
 
 namespace Huellero.Frontend.Estudiante
 {
@@ -226,5 +227,32 @@ namespace Huellero.Frontend.Estudiante
                 MessageBox.Show("Error: No se pudo obtener el estudiante.");
             }
         }
+
+        private void Cerrar_Sesion_Click(object sender, EventArgs e)
+        {
+            // Confirmar si el usuario quiere volver al menú principal
+            DialogResult result = MessageBox.Show(
+                "¿Deseas volver al menú principal?",
+                "Cerrar Sesión",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                // Ocultar la ventana actual en lugar de cerrarla
+                this.Hide();
+
+                // Abrir el formulario principal (Main)
+                main mainForm = new main();
+                mainForm.ShowDialog();
+
+                // Cerrar la ventana actual después de volver al Main
+                this.Close();
+            }
+        
+
     }
+
+}
 }

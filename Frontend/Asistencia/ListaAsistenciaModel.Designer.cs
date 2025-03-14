@@ -20,6 +20,7 @@ namespace Huellero.Frontend.Asistencia
             this.dateFiltro = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.btnImprimir = new System.Windows.Forms.Button();
+            this.Cerrar_Sesion = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlumnos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -27,6 +28,7 @@ namespace Huellero.Frontend.Asistencia
             // 
             this.dataGridViewAlumnos.AllowUserToAddRows = false;
             this.dataGridViewAlumnos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewAlumnos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewAlumnos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -38,7 +40,7 @@ namespace Huellero.Frontend.Asistencia
             this.dataGridViewAlumnos.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewAlumnos.Name = "dataGridViewAlumnos";
             this.dataGridViewAlumnos.ReadOnly = true;
-            this.dataGridViewAlumnos.Size = new System.Drawing.Size(750, 366);
+            this.dataGridViewAlumnos.Size = new System.Drawing.Size(750, 311);
             this.dataGridViewAlumnos.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
@@ -116,11 +118,22 @@ namespace Huellero.Frontend.Asistencia
             this.btnImprimir.UseVisualStyleBackColor = true;
             this.btnImprimir.Click += new System.EventHandler(this.BtnImprimir_Click);
             // 
+            // Cerrar_Sesion
+            // 
+            this.Cerrar_Sesion.Location = new System.Drawing.Point(661, 484);
+            this.Cerrar_Sesion.Name = "Cerrar_Sesion";
+            this.Cerrar_Sesion.Size = new System.Drawing.Size(121, 23);
+            this.Cerrar_Sesion.TabIndex = 12;
+            this.Cerrar_Sesion.Text = "Volver";
+            this.Cerrar_Sesion.UseVisualStyleBackColor = true;
+            this.Cerrar_Sesion.Click += new System.EventHandler(this.Cerrar_Sesion_Click);
+            // 
             // ListaAsistenciaModel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(806, 540);
+            this.Controls.Add(this.Cerrar_Sesion);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dateFiltro);
@@ -146,5 +159,6 @@ namespace Huellero.Frontend.Asistencia
         private DateTimePicker dateFiltro;
         private Label label1;
         private Button btnImprimir;
+        private Button Cerrar_Sesion;
     }
 }

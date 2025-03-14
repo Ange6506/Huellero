@@ -17,6 +17,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListaAlumnosModel));
             this.dgvAlumnos = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -27,6 +28,7 @@
             this.Capturar_Huella = new System.Windows.Forms.DataGridViewImageColumn();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.Cerrar_Sesion = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -34,6 +36,7 @@
             // 
             this.dgvAlumnos.AllowUserToAddRows = false;
             this.dgvAlumnos.AllowUserToDeleteRows = false;
+            this.dgvAlumnos.BackgroundColor = System.Drawing.Color.White;
             this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAlumnos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -43,7 +46,7 @@
             this.dataGridViewTextBoxColumn5,
             this.Editar,
             this.Capturar_Huella});
-            this.dgvAlumnos.Location = new System.Drawing.Point(42, 96);
+            this.dgvAlumnos.Location = new System.Drawing.Point(170, 146);
             this.dgvAlumnos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvAlumnos.Name = "dgvAlumnos";
             this.dgvAlumnos.ReadOnly = true;
@@ -99,7 +102,7 @@
             // txtBuscar
             // 
             this.txtBuscar.ForeColor = System.Drawing.Color.Gray;
-            this.txtBuscar.Location = new System.Drawing.Point(448, 42);
+            this.txtBuscar.Location = new System.Drawing.Point(576, 90);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(2);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(301, 20);
@@ -109,18 +112,31 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(39, 41);
+            this.label1.Location = new System.Drawing.Point(167, 89);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(140, 18);
             this.label1.TabIndex = 2;
             this.label1.Text = "Lista de Estudiantes";
             // 
+            // Cerrar_Sesion
+            // 
+            this.Cerrar_Sesion.Location = new System.Drawing.Point(756, 489);
+            this.Cerrar_Sesion.Name = "Cerrar_Sesion";
+            this.Cerrar_Sesion.Size = new System.Drawing.Size(121, 23);
+            this.Cerrar_Sesion.TabIndex = 11;
+            this.Cerrar_Sesion.Text = "Volver";
+            this.Cerrar_Sesion.UseVisualStyleBackColor = true;
+            this.Cerrar_Sesion.Click += new System.EventHandler(this.Cerrar_Sesion_Click);
+            // 
             // ListaAlumnosModel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(808, 481);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(1053, 547);
+            this.Controls.Add(this.Cerrar_Sesion);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.dgvAlumnos);
@@ -141,5 +157,6 @@
         private System.Windows.Forms.DataGridViewImageColumn Editar;
         private System.Windows.Forms.DataGridViewImageColumn Capturar_Huella; // Cambio aquí
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button Cerrar_Sesion;
     }
 }

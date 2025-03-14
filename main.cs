@@ -10,6 +10,8 @@ namespace Huellero
 {
     public partial class main : Form
     {
+
+
         public main()
         {
             InitializeComponent();
@@ -18,36 +20,35 @@ namespace Huellero
 
         private void ConfigurarInterfazPorRol()
         {
-            // Ocultar todos los botones por defecto
-            btnAgregarUsuario.Visible = false;
-            btnAgregarRol.Visible = false;
-            btnAgregarPrograma.Visible = false;
-            btnListAsistencia.Visible = false;
-            btnListPrograma.Visible = false;
-            btnListEstudiante.Visible = false;
-            btnVerificar.Visible = false;
-            btnRegistrar.Visible = false;
-            btnFormularioAlumno.Visible = false;
+            // Deshabilitar todos los botones por defecto
+            btnAgregarUsuario.Enabled = false;
+            btnAgregarRol.Enabled = false;
+            btnAgregarPrograma.Enabled = false;
+            btnListAsistencia.Enabled = false;
+            btnListPrograma.Enabled = false;
+            btnListEstudiante.Enabled = false;
+            btnVerificar.Enabled = false;
+            btnRegistrar.Enabled = false;
+            btnFormularioAlumno.Enabled = false;
+
             // Verificar el rol del usuario autenticado
             if (Login.IdRolUsuario == 1) // Administrador
             {
-                btnAgregarUsuario.Visible = true;
-                btnAgregarRol.Visible = true;
-                btnAgregarPrograma.Visible = true;
-                btnListPrograma.Visible = true;
-                btnListEstudiante.Visible = true;
-                btnFormularioAlumno.Visible = true;
-
-
+                btnAgregarUsuario.Enabled = true;
+                btnAgregarRol.Enabled = true;
+                btnAgregarPrograma.Enabled = true;
+                btnListPrograma.Enabled = true;
+                btnListEstudiante.Enabled = true;
+                btnFormularioAlumno.Enabled = true;
             }
             else if (Login.IdRolUsuario == 2) // Usuario normal
             {
-                btnListEstudiante.Visible = true;
-                btnListAsistencia.Visible = true;
-                btnListPrograma.Visible = true;
-                btnVerificar.Visible = true;
-
+                btnListEstudiante.Enabled = true;
+                btnListAsistencia.Enabled = true;
+                btnListPrograma.Enabled = true;
+                btnVerificar.Enabled = true;
             }
+        
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
@@ -103,5 +104,27 @@ namespace Huellero
             ListaProgramaModel lisPrograma = new ListaProgramaModel();
             lisPrograma.ShowDialog();
         }
+
+
+
+        private void Cerrar_Sesion_Click(object sender, EventArgs e)
+        {
+            // Confirmar si el usuario quiere cerrar sesión
+            DialogResult result = MessageBox.Show("¿Estás seguro de que deseas cerrar sesión?", "Cerrar Sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                // Reiniciar variables de sesión
+                Login.IdRolUsuario = 0; // Restablecer el rol del usuario autenticado
+
+                // Mostrar el formulario de Login antes de cerrar main
+                Login login = new Login();
+
+                // Cerrar el formulario actual
+                this.Close();
+            }
+        
     }
+
+}
 }

@@ -46,8 +46,9 @@
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.label1 = new System.Windows.Forms.Label();
-            this.Cerrar_Sesion = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -121,15 +122,15 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Lista Programas";
             // 
-            // Cerrar_Sesion
+            // pictureBox3
             // 
-            this.Cerrar_Sesion.Location = new System.Drawing.Point(589, 48);
-            this.Cerrar_Sesion.Name = "Cerrar_Sesion";
-            this.Cerrar_Sesion.Size = new System.Drawing.Size(121, 23);
-            this.Cerrar_Sesion.TabIndex = 10;
-            this.Cerrar_Sesion.Text = "Volver";
-            this.Cerrar_Sesion.UseVisualStyleBackColor = true;
-            this.Cerrar_Sesion.Click += new System.EventHandler(this.Cerrar_Sesion_Click);
+            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
+            this.pictureBox3.Location = new System.Drawing.Point(673, 47);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(37, 31);
+            this.pictureBox3.TabIndex = 34;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.PictureBox3_Click);
             // 
             // ListaProgramaModel
             // 
@@ -137,13 +138,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(784, 540);
-            this.Controls.Add(this.Cerrar_Sesion);
+            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "ListaProgramaModel";
             this.Text = "Gestión de Programas";
             this.Load += new System.EventHandler(this.FormularioPrograma_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,6 +158,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewImageColumn Editar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button Cerrar_Sesion;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

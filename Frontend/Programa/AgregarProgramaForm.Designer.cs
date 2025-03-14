@@ -34,10 +34,13 @@ namespace Huellero
             this.btnAgregar = new System.Windows.Forms.Button();
             this.txtFechaIngreso = new System.Windows.Forms.DateTimePicker();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.lblMensaje = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // lblPrograma
@@ -74,22 +77,8 @@ namespace Huellero
             this.lblHoraIngreso.TabIndex = 4;
             this.lblHoraIngreso.Text = "Hora Ingreso";
             // 
-
+            // txtHoraIngreso
             // 
-            // lblMensaje
-            this.lblMensaje = new System.Windows.Forms.Label();
-            this.lblMensaje.ForeColor = System.Drawing.Color.Red;
-            this.lblMensaje.Location = new System.Drawing.Point(35, 520); // Ajusta la posición según tu diseño
-            this.lblMensaje.Size = new System.Drawing.Size(250, 20);
-            this.lblMensaje.Name = "lblMensaje";
-            this.lblMensaje.Text = "";
-
-            // Agregar lblMensaje al formulario
-            this.materialCard1.Controls.Add(this.lblMensaje);
-
-
-            // Agregar lblMensaje al formulario
-            this.materialCard1.Controls.Add(this.lblMensaje);            // txtHoraIngreso
             this.txtHoraIngreso.Location = new System.Drawing.Point(38, 318);
             this.txtHoraIngreso.Name = "txtHoraIngreso";
             this.txtHoraIngreso.Size = new System.Drawing.Size(228, 20);
@@ -152,6 +141,8 @@ namespace Huellero
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.materialCard1.Controls.Add(this.pictureBox3);
+            this.materialCard1.Controls.Add(this.lblMensaje);
             this.materialCard1.Controls.Add(this.pictureBox1);
             this.materialCard1.Controls.Add(this.btnAgregar);
             this.materialCard1.Controls.Add(this.cbEstado);
@@ -175,6 +166,14 @@ namespace Huellero
             this.materialCard1.Size = new System.Drawing.Size(305, 529);
             this.materialCard1.TabIndex = 12;
             // 
+            // lblMensaje
+            // 
+            this.lblMensaje.ForeColor = System.Drawing.Color.Red;
+            this.lblMensaje.Location = new System.Drawing.Point(35, 520);
+            this.lblMensaje.Name = "lblMensaje";
+            this.lblMensaje.Size = new System.Drawing.Size(250, 20);
+            this.lblMensaje.TabIndex = 0;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
@@ -196,6 +195,16 @@ namespace Huellero
             this.label1.TabIndex = 3;
             this.label1.Text = "Registrar Programa";
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
+            this.pictureBox3.Location = new System.Drawing.Point(267, 2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(37, 31);
+            this.pictureBox3.TabIndex = 35;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.PictureBox3_Click);
+            // 
             // AgregarProgramaForm
             // 
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
@@ -206,6 +215,7 @@ namespace Huellero
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -214,5 +224,6 @@ namespace Huellero
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private PictureBox pictureBox1;
         private Label label1;
+        private PictureBox pictureBox3;
     }
 }

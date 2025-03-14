@@ -5,6 +5,7 @@ using Huellero.Frontend.Programa;
 using Huellero.Controllers.Login; // Importar la clase Login
 using System;
 using System.Windows.Forms;
+using Huellero.Frontend.Usuario;
 
 namespace Huellero
 {
@@ -25,6 +26,7 @@ namespace Huellero
   
             btnAgregarPrograma.Enabled = false;
             btnListAsistencia.Enabled = false;
+            ListUsuarios.Enabled = false;
             btnListPrograma.Enabled = false;
             btnListEstudiante.Enabled = false;
             btnVerificar.Enabled = false;
@@ -40,6 +42,7 @@ namespace Huellero
                 btnListPrograma.Enabled = true;
                 btnListEstudiante.Enabled = true;
                 btnFormularioAlumno.Enabled = true;
+                ListUsuarios.Enabled = true;
             }
             else if (Login.IdRolUsuario == 2) // Usuario normal
             {
@@ -121,5 +124,10 @@ namespace Huellero
         
     }
 
-}
+        private void ListUsuarios_Click(object sender, EventArgs e)
+        {
+            ListaUsuarioModel lisUsuario= new ListaUsuarioModel();
+            lisUsuario.ShowDialog();
+        }
+    }
 }

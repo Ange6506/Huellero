@@ -41,8 +41,10 @@ namespace Huellero
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.lblMensaje = new System.Windows.Forms.Label();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.materialCard1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +62,7 @@ namespace Huellero
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(77, 180);
+            this.lblUsername.Location = new System.Drawing.Point(52, 180);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(99, 13);
             this.lblUsername.TabIndex = 1;
@@ -68,16 +70,16 @@ namespace Huellero
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(80, 211);
+            this.txtUsername.Location = new System.Drawing.Point(55, 211);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(200, 20);
+            this.txtUsername.Size = new System.Drawing.Size(253, 20);
             this.txtUsername.TabIndex = 2;
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.BackColor = System.Drawing.Color.Transparent;
-            this.lblPassword.Location = new System.Drawing.Point(77, 250);
+            this.lblPassword.Location = new System.Drawing.Point(52, 248);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(64, 13);
             this.lblPassword.TabIndex = 3;
@@ -85,17 +87,17 @@ namespace Huellero
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(80, 281);
+            this.txtPassword.Location = new System.Drawing.Point(55, 282);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(200, 20);
+            this.txtPassword.Size = new System.Drawing.Size(253, 20);
             this.txtPassword.TabIndex = 4;
             // 
             // lblRol
             // 
             this.lblRol.AutoSize = true;
             this.lblRol.BackColor = System.Drawing.Color.Transparent;
-            this.lblRol.Location = new System.Drawing.Point(77, 325);
+            this.lblRol.Location = new System.Drawing.Point(52, 321);
             this.lblRol.Name = "lblRol";
             this.lblRol.Size = new System.Drawing.Size(26, 13);
             this.lblRol.TabIndex = 5;
@@ -104,16 +106,16 @@ namespace Huellero
             // cmbRoles
             // 
             this.cmbRoles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbRoles.Location = new System.Drawing.Point(80, 356);
+            this.cmbRoles.Location = new System.Drawing.Point(55, 354);
             this.cmbRoles.Name = "cmbRoles";
-            this.cmbRoles.Size = new System.Drawing.Size(200, 21);
+            this.cmbRoles.Size = new System.Drawing.Size(253, 21);
             this.cmbRoles.TabIndex = 6;
             // 
             // lblEstado
             // 
             this.lblEstado.AutoSize = true;
             this.lblEstado.BackColor = System.Drawing.Color.Transparent;
-            this.lblEstado.Location = new System.Drawing.Point(77, 392);
+            this.lblEstado.Location = new System.Drawing.Point(52, 393);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(43, 13);
             this.lblEstado.TabIndex = 7;
@@ -125,9 +127,9 @@ namespace Huellero
             this.cmbEstado.Items.AddRange(new object[] {
             "Activo",
             "Inactivo"});
-            this.cmbEstado.Location = new System.Drawing.Point(80, 420);
+            this.cmbEstado.Location = new System.Drawing.Point(55, 423);
             this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(200, 21);
+            this.cmbEstado.Size = new System.Drawing.Size(253, 21);
             this.cmbEstado.TabIndex = 8;
             // 
             // btnRegistrar
@@ -153,6 +155,7 @@ namespace Huellero
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.materialCard1.Controls.Add(this.pictureBox3);
             this.materialCard1.Controls.Add(this.pictureBox1);
             this.materialCard1.Controls.Add(this.btnRegistrar);
             this.materialCard1.Controls.Add(this.cmbEstado);
@@ -166,13 +169,23 @@ namespace Huellero
             this.materialCard1.Controls.Add(this.lblTitulo);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(333, 23);
+            this.materialCard1.Location = new System.Drawing.Point(284, 23);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard1.Size = new System.Drawing.Size(346, 524);
             this.materialCard1.TabIndex = 11;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
+            this.pictureBox3.Location = new System.Drawing.Point(309, 0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(37, 31);
+            this.pictureBox3.TabIndex = 36;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.PictureBox3_Click);
             // 
             // pictureBox1
             // 
@@ -194,6 +207,7 @@ namespace Huellero
             this.Text = "Agregar Usuario";
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -207,5 +221,6 @@ namespace Huellero
 
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

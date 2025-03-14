@@ -82,5 +82,11 @@ namespace Huellero
                 lblMensaje.Text = "Error al registrar usuario.";
             }
         }
+
+        private void PictureBox3_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
     }
 }

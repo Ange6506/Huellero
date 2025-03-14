@@ -62,8 +62,10 @@ namespace Huellero
             this.lblNombre_Estudiante = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNombre
@@ -172,6 +174,7 @@ namespace Huellero
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.materialCard1.Controls.Add(this.pictureBox3);
             this.materialCard1.Controls.Add(this.Semestre_academico);
             this.materialCard1.Controls.Add(this.btnGuardar);
             this.materialCard1.Controls.Add(this.btnRegistrarHuella);
@@ -340,6 +343,16 @@ namespace Huellero
             this.label1.TabIndex = 3;
             this.label1.Text = "Registrar Estudiante";
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
+            this.pictureBox3.Location = new System.Drawing.Point(594, 9);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(37, 31);
+            this.pictureBox3.TabIndex = 32;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.PictureBox3_Click);
+            // 
             // FormularioAlumno
             // 
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
@@ -350,6 +363,7 @@ namespace Huellero
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -369,5 +383,6 @@ namespace Huellero
         private Label Hora_dia;
         private Label dia_semana;
         private Label Semestre_academico;
+        private PictureBox pictureBox3;
     }
 }

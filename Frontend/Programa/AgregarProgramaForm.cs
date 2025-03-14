@@ -73,5 +73,11 @@ namespace Huellero
                 lblMensaje.Text = $"Error: {ex.Message}";
             }
         }
+
+        private void PictureBox3_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
     }
 }

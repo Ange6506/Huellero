@@ -38,6 +38,7 @@
             this.btnListAsistencia = new System.Windows.Forms.Button();
             this.btnListPrograma = new System.Windows.Forms.Button();
             this.Cerrar_Sesion = new System.Windows.Forms.Button();
+            this.ListUsuarios = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnRegistrar
@@ -122,10 +123,20 @@
             this.Cerrar_Sesion.UseVisualStyleBackColor = true;
             this.Cerrar_Sesion.Click += new System.EventHandler(this.Cerrar_Sesion_Click);
             // 
+            // ListUsuarios
+            // 
+            this.ListUsuarios.Location = new System.Drawing.Point(426, 302);
+            this.ListUsuarios.Name = "ListUsuarios";
+            this.ListUsuarios.Size = new System.Drawing.Size(138, 30);
+            this.ListUsuarios.TabIndex = 10;
+            this.ListUsuarios.Text = "Lista Usuarios";
+            this.ListUsuarios.Click += new System.EventHandler(this.ListUsuarios_Click);
+            // 
             // main
             // 
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(873, 514);
+            this.Controls.Add(this.ListUsuarios);
             this.Controls.Add(this.Cerrar_Sesion);
             this.Controls.Add(this.btnListPrograma);
             this.Controls.Add(this.btnListAsistencia);
@@ -151,6 +162,7 @@
         private System.Windows.Forms.Button btnListAsistencia;
         private System.Windows.Forms.Button btnListPrograma;
         private System.Windows.Forms.Button Cerrar_Sesion;
+        private System.Windows.Forms.Button ListUsuarios;
     }
 }
 

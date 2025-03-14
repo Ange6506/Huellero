@@ -603,6 +603,7 @@
     <Analyzer Include="packages\MSTest.Analyzers.3.8.2\analyzers\dotnet\cs\MSTest.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Recursos\Fondo.jpeg" />
     <Content Include="Recursos\IconoEditar.png" />
     <Content Include="Recursos\IconoEliminar.png" />
     <Content Include="Recursos\IconoHuella.png" />

@@ -7,25 +7,27 @@ namespace Huellero.Controllers.Login
     {
         private readonly string connectionString = "Host=localhost;Username=postgres;Password=Admin;Database=RegisterAttendance;CommandTimeout=30";
 
-        public static string UsuarioActual { get; private set; } // Variable estática para almacenar el usuario autenticado
+        public static string UsuarioActual { get; private set; } // Usuario autenticado
+        public static int IdRolUsuario { get; private set; } // ID del rol del usuario autenticado
 
         public bool IniciarSesion(string username, string password)
         {
             using (var connection = new NpgsqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "SELECT COUNT(*) FROM usuarios WHERE username = @username AND password = @password AND estado = true";
+                string query = "SELECT id_rol FROM usuarios WHERE username = @username AND password = @password AND estado = true";
 
                 using (var command = new NpgsqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@username", username);
                     command.Parameters.AddWithValue("@password", password);
 
-                    int count = Convert.ToInt32(command.ExecuteScalar());
+                    var result = command.ExecuteScalar();
 
-                    if (count > 0)
+                    if (result != null) // Si hay resultado, el usuario existe y está activo
                     {
-                        UsuarioActual = username; // Guardar el usuario autenticado
+                        UsuarioActual = username;
+                        IdRolUsuario = Convert.ToInt32(result); // Guardar el ID del rol
                         return true;
                     }
 

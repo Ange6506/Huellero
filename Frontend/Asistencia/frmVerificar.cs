@@ -1,6 +1,6 @@
 ﻿using DPFP;
 using DPFP.Verification;
-using Huellero.Backend.DatabaseConnection; // Asegúrate de que el namespace sea correcto
+using Huellero.Backend.DatabaseConnection;
 using Npgsql;
 using System;
 using System.IO;
@@ -41,7 +41,6 @@ namespace Huellero
 
             try
             {
-                // Se obtiene la conexión mediante DatabaseConnection
                 using (var conn = _databaseConnection.GetConnectionAsync().GetAwaiter().GetResult())
                 {
                     string sql = "SELECT id_estudiantes, nombre_del_estudiante, huella FROM estudiantes";
@@ -64,7 +63,7 @@ namespace Huellero
 
                                 if (result.Verified)
                                 {
-                                    reader.Close(); // Cerrar el lector antes de ejecutar otra consulta
+                                    reader.Close();
                                     RegistrarAsistencia(idEstudiante, conn);
                                     MessageBox.Show($"Huella verificada: {nombre}");
                                     return;
@@ -86,7 +85,6 @@ namespace Huellero
         {
             try
             {
-                // Obtener id_est_x_semestre
                 string estudianteQuery = "SELECT id_est_x_semestre FROM est_x_semestre WHERE id_estudiante = @id";
                 int? idEstXSemestre = null;
 
@@ -108,7 +106,6 @@ namespace Huellero
                     return;
                 }
 
-                // Consultar si existe una entrada activa (sin salida) y obtener también la fecha de entrada.
                 string asistenciaQuery = @"SELECT id_asistencia, fecha_hora_entrada FROM asistencia 
                                            WHERE id_est_x_semestre = @id 
                                            AND fecha_hora_salida IS NULL 
@@ -130,17 +127,14 @@ namespace Huellero
                     }
                 }
 
-                // Verificar si el registro activo corresponde al mismo día.
-                // Si la fecha de entrada es anterior al día actual, se asume que es un nuevo día.
-                if (idAsistencia.HasValue && fechaEntrada.HasValue &&
-                    fechaEntrada.Value.Date == DateTime.Now.Date)
+                if (idAsistencia.HasValue && fechaEntrada.HasValue)
                 {
-                    // Registrar salida únicamente si el registro es del mismo día.
-                    // Además, si es exactamente medianoche (00:00), no se registra la salida.
-                    if (DateTime.Now.TimeOfDay.Hours == 0)
+                    TimeSpan diferenciaTiempo = DateTime.Now - fechaEntrada.Value;
+
+                    if (diferenciaTiempo.TotalMinutes < 5)
                     {
-                        // Si es medianoche, se ignora la salida y se procede a registrar una nueva entrada.
-                        idAsistencia = null;
+                        MessageBox.Show("Debe esperar al menos 5 minutos antes de registrar su salida.");
+                        return;
                     }
                     else
                     {
@@ -156,7 +150,6 @@ namespace Huellero
                     }
                 }
 
-                // Si no hay registro activo o si corresponde a un día anterior, se registra una nueva entrada.
                 string insertQuery = @"INSERT INTO asistencia (fecha_hora_entrada, id_est_x_semestre) 
                                        VALUES (NOW(), @id) RETURNING id_asistencia";
 

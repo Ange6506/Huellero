@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Npgsql;
+using Huellero.Backend.DatabaseConnection;
 
 namespace Huellero.Controllers.Get
 {
     public class GetUsuarios
     {
-        private readonly string _connectionString = "Host=localhost;Username=postgres;Password=Admin;Database=RegisterAttendance;CommandTimeout=30";
+        private readonly DatabaseConnection _databaseConnection;
+
+        public GetUsuarios()
+        {
+            _databaseConnection = new DatabaseConnection();
+        }
 
         public async Task<List<dynamic>> GetUsuariosAsync()
         {
@@ -15,14 +21,12 @@ namespace Huellero.Controllers.Get
 
             try
             {
-                using (var connection = new NpgsqlConnection(_connectionString))
+                using (var connection = await _databaseConnection.GetConnectionAsync())
                 {
-                    await connection.OpenAsync();
-
                     string query = @"
                         SELECT u.id_usuario, u.username, u.password, r.descripcion AS nombre_rol, u.estado
                         FROM usuarios u
-                        INNER JOIN rol r ON u.id_rol = r.id_rol"; // 🔹 Hacemos JOIN para traer el nombre del rol
+                        INNER JOIN rol r ON u.id_rol = r.id_rol"; // 🔹 JOIN para traer el nombre del rol
 
                     using (var command = new NpgsqlCommand(query, connection))
                     using (var reader = await command.ExecuteReaderAsync())
@@ -34,7 +38,7 @@ namespace Huellero.Controllers.Get
                                 IdUsuario = reader.GetInt32(0),
                                 Username = reader.GetString(1),
                                 Password = reader.GetString(2),
-                                NombreRol = reader.GetString(3),  // 🔹 Ahora obtenemos el nombre del rol
+                                NombreRol = reader.GetString(3),
                                 Estado = reader.GetBoolean(4)
                             });
                         }

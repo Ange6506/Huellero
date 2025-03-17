@@ -66,11 +66,11 @@ namespace Huellero.Frontend.Login
             }
         }
 
-       
 
 
 
-        private void BtnLogin_Click_1(object sender, EventArgs e)
+
+        private async void BtnLogin_Click_1(object sender, EventArgs e)
         {
             string usuario = txtUsuario.Text;
             string contraseña = txtContraseña.Text;
@@ -82,7 +82,7 @@ namespace Huellero.Frontend.Login
             }
 
             Huellero.Controllers.Login.Login loginController = new Huellero.Controllers.Login.Login();
-            bool esValido = loginController.IniciarSesion(usuario, contraseña);
+            bool esValido = await loginController.IniciarSesionAsync(usuario, contraseña); // 🔹 Llamada asíncrona
 
             if (esValido)
             {
@@ -97,6 +97,7 @@ namespace Huellero.Frontend.Login
             {
                 MessageBox.Show("Usuario o contraseña incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
+        
     }
+}
 }

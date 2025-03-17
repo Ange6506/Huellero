@@ -1,20 +1,23 @@
 ﻿using DPFP;
+using DPFP.Verification;
+using Huellero.Backend.DatabaseConnection; // Asegúrate de que el namespace sea correcto
+using Npgsql;
 using System;
 using System.IO;
 using System.Windows.Forms;
-using Npgsql;
 
 namespace Huellero
 {
     public partial class frmVerificar : CaptureForm
     {
         private DPFP.Verification.Verification Verificator;
-        private readonly string connectionString = "Host=localhost;Username=postgres;Password=Admin;Database=RegisterAttendance;CommandTimeout=30";
+        private readonly DatabaseConnection _databaseConnection;
 
         public frmVerificar()
         {
             InitializeComponent();
             Verificator = new DPFP.Verification.Verification();
+            _databaseConnection = new DatabaseConnection();
         }
 
         protected override void Init()
@@ -38,9 +41,9 @@ namespace Huellero
 
             try
             {
-                using (var conn = new NpgsqlConnection(connectionString))
+                // Se obtiene la conexión mediante DatabaseConnection
+                using (var conn = _databaseConnection.GetConnectionAsync().GetAwaiter().GetResult())
                 {
-                    conn.Open();
                     string sql = "SELECT id_estudiantes, nombre_del_estudiante, huella FROM estudiantes";
 
                     using (var cmd = new NpgsqlCommand(sql, conn))

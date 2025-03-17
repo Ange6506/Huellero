@@ -47,15 +47,6 @@ namespace Huellero.Controllers
                             throw new Exception("No se pudo obtener el ID del usuario registrado.");
                         }
 
-                        string insertProgramaQuery = @"
-                            INSERT INTO programa (usuario) VALUES (@idUsuario)";
-
-                        using (var command = new NpgsqlCommand(insertProgramaQuery, connection, transaction))
-                        {
-                            command.Parameters.AddWithValue("@idUsuario", idUsuario);
-                            await command.ExecuteNonQueryAsync();
-                        }
-
                         transaction.Commit();
 
                         MessageBox.Show($"Usuario registrado con éxito. ID: {idUsuario}",

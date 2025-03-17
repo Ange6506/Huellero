@@ -134,7 +134,7 @@ namespace Huellero
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(135, 463);
+            this.btnRegistrar.Location = new System.Drawing.Point(122, 475);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(100, 30);
             this.btnRegistrar.TabIndex = 9;
@@ -146,16 +146,18 @@ namespace Huellero
             // 
             this.lblMensaje.AutoSize = true;
             this.lblMensaje.ForeColor = System.Drawing.Color.Red;
-            this.lblMensaje.Location = new System.Drawing.Point(30, 260);
+            this.lblMensaje.Location = new System.Drawing.Point(130, 455);
             this.lblMensaje.Name = "lblMensaje";
-            this.lblMensaje.Size = new System.Drawing.Size(0, 13);
+            this.lblMensaje.Size = new System.Drawing.Size(85, 13);
             this.lblMensaje.TabIndex = 10;
+      
             // 
             // materialCard1
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.materialCard1.Controls.Add(this.pictureBox3);
+            this.materialCard1.Controls.Add(this.lblMensaje);
             this.materialCard1.Controls.Add(this.pictureBox1);
             this.materialCard1.Controls.Add(this.btnRegistrar);
             this.materialCard1.Controls.Add(this.cmbEstado);
@@ -191,7 +193,7 @@ namespace Huellero
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.Location = new System.Drawing.Point(135, 48);
+            this.pictureBox1.Location = new System.Drawing.Point(136, 57);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(64, 54);
             this.pictureBox1.TabIndex = 3;
@@ -202,15 +204,14 @@ namespace Huellero
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(889, 594);
             this.Controls.Add(this.materialCard1);
-            this.Controls.Add(this.lblMensaje);
             this.Name = "AgregarUsuarioForm";
             this.Text = "Agregar Usuario";
+            this.Load += new System.EventHandler(this.AgregarUsuarioForm_Load);
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

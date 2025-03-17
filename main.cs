@@ -104,8 +104,13 @@ namespace Huellero
         }
 
 
+        private void ListUsuarios_Click(object sender, EventArgs e)
+        {
+            ListaUsuarioModel lisUsuario= new ListaUsuarioModel();
+            lisUsuario.ShowDialog();
+        }
 
-        private void Cerrar_Sesion_Click(object sender, EventArgs e)
+        private void PictureBox3_Click(object sender, EventArgs e)
         {
             // Confirmar si el usuario quiere cerrar sesión
             DialogResult result = MessageBox.Show("¿Estás seguro de que deseas cerrar sesión?", "Cerrar Sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -121,13 +126,7 @@ namespace Huellero
                 // Cerrar el formulario actual
                 this.Close();
             }
-        
-    }
 
-        private void ListUsuarios_Click(object sender, EventArgs e)
-        {
-            ListaUsuarioModel lisUsuario= new ListaUsuarioModel();
-            lisUsuario.ShowDialog();
         }
     }
 }

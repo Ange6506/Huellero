@@ -48,13 +48,13 @@ namespace Huellero
             this.txtHorasSemanales = new System.Windows.Forms.TextBox();
             this.txtSemestre = new System.Windows.Forms.TextBox();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.Semestre_academico = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Hora_dia = new System.Windows.Forms.Label();
             this.dia_semana = new System.Windows.Forms.Label();
             this.Especialidad = new System.Windows.Forms.Label();
-            this.Asignatura = new System.Windows.Forms.Label();
             this.fecha_final = new System.Windows.Forms.Label();
             this.fecha_inicial = new System.Windows.Forms.Label();
             this.Programa = new System.Windows.Forms.Label();
@@ -62,10 +62,10 @@ namespace Huellero
             this.lblNombre_Estudiante = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.Asignatura = new System.Windows.Forms.Label();
             this.materialCard1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNombre
@@ -174,6 +174,7 @@ namespace Huellero
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.materialCard1.Controls.Add(this.Asignatura);
             this.materialCard1.Controls.Add(this.pictureBox3);
             this.materialCard1.Controls.Add(this.Semestre_academico);
             this.materialCard1.Controls.Add(this.btnGuardar);
@@ -189,7 +190,6 @@ namespace Huellero
             this.materialCard1.Controls.Add(this.txtDiasSemana);
             this.materialCard1.Controls.Add(this.Especialidad);
             this.materialCard1.Controls.Add(this.txtEspecialidad);
-            this.materialCard1.Controls.Add(this.Asignatura);
             this.materialCard1.Controls.Add(this.txtAsignatura);
             this.materialCard1.Controls.Add(this.fecha_final);
             this.materialCard1.Controls.Add(this.dateTimePickerFin);
@@ -212,6 +212,16 @@ namespace Huellero
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard1.Size = new System.Drawing.Size(637, 642);
             this.materialCard1.TabIndex = 15;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
+            this.pictureBox3.Location = new System.Drawing.Point(594, 9);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(37, 31);
+            this.pictureBox3.TabIndex = 32;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.PictureBox3_Click);
             // 
             // Semestre_academico
             // 
@@ -266,16 +276,6 @@ namespace Huellero
             this.Especialidad.Size = new System.Drawing.Size(67, 13);
             this.Especialidad.TabIndex = 10;
             this.Especialidad.Text = "Especialidad";
-            // 
-            // Asignatura
-            // 
-            this.Asignatura.AutoSize = true;
-            this.Asignatura.Enabled = false;
-            this.Asignatura.Location = new System.Drawing.Point(56, 465);
-            this.Asignatura.Name = "Asignatura";
-            this.Asignatura.Size = new System.Drawing.Size(57, 13);
-            this.Asignatura.TabIndex = 9;
-            this.Asignatura.Text = "Asignatura";
             // 
             // fecha_final
             // 
@@ -343,15 +343,14 @@ namespace Huellero
             this.label1.TabIndex = 3;
             this.label1.Text = "Registrar Estudiante";
             // 
-            // pictureBox3
+            // Asignatura
             // 
-            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.Location = new System.Drawing.Point(594, 9);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(37, 31);
-            this.pictureBox3.TabIndex = 32;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.PictureBox3_Click);
+            this.Asignatura.AutoSize = true;
+            this.Asignatura.Location = new System.Drawing.Point(55, 465);
+            this.Asignatura.Name = "Asignatura";
+            this.Asignatura.Size = new System.Drawing.Size(57, 13);
+            this.Asignatura.TabIndex = 33;
+            this.Asignatura.Text = "Asignatura";
             // 
             // FormularioAlumno
             // 
@@ -362,8 +361,8 @@ namespace Huellero
             this.Text = "Registro de Alumno";
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -376,7 +375,6 @@ namespace Huellero
         private Label Programa;
         private Label fecha_inicial;
         private Label fecha_final;
-        private Label Asignatura;
         private Label Especialidad;
         private Label label3;
         private Label label2;
@@ -384,5 +382,6 @@ namespace Huellero
         private Label dia_semana;
         private Label Semestre_academico;
         private PictureBox pictureBox3;
+        private Label Asignatura;
     }
 }

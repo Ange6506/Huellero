@@ -408,16 +408,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\Get\GetAsistencia.cs" />
-    <Compile Include="Controllers\Get\GetEstudiante.cs" />
-    <Compile Include="Controllers\Get\GetUsuario.cs" />
-    <Compile Include="Controllers\Login\Login.cs" />
-    <Compile Include="Controllers\Post\AddAsistencia.cs" />
-    <Compile Include="Controllers\Post\AddRol.cs" />
-    <Compile Include="Controllers\Update\HuellaUpdate.cs" />
-    <Compile Include="Controllers\Update\UpdateEstudiante.cs" />
-    <Compile Include="Controllers\Update\UpdatePrograma.cs" />
-    <Compile Include="Controllers\Update\UpdateUsuarioController.cs" />
+    <Compile Include="Backend\Controllers\Get\GetAsistencia.cs" />
+    <Compile Include="Backend\Controllers\Get\GetEstudiante.cs" />
+    <Compile Include="Backend\Controllers\Get\GetUsuario.cs" />
+    <Compile Include="Backend\Controllers\Login\Login.cs" />
+    <Compile Include="Backend\Controllers\Post\AddAsistencia.cs" />
+    <Compile Include="Backend\Controllers\Post\AddRol.cs" />
+    <Compile Include="Backend\Controllers\Update\HuellaUpdate.cs" />
+    <Compile Include="Backend\Controllers\Update\UpdateEstudiante.cs" />
+    <Compile Include="Backend\Controllers\Update\UpdatePrograma.cs" />
+    <Compile Include="Backend\Controllers\Update\UpdateUsuarioController.cs" />
+    <Compile Include="Backend\DatabaseConnection\DatabaseConnection.cs" />
     <Compile Include="Frontend\Asistencia\ListaAsistenciaModel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -478,11 +479,11 @@
     <Compile Include="Frontend\Huella\CaptureForm.Designer.cs">
       <DependentUpon>CaptureForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\Post\AddEstudiante.cs" />
-    <Compile Include="Controllers\Get\GetPrograma.cs" />
-    <Compile Include="Controllers\Get\GetRol.cs" />
-    <Compile Include="Controllers\Post\AddUsuario.cs" />
-    <Compile Include="Controllers\Post\AddPrograma.cs" />
+    <Compile Include="Backend\Controllers\Post\AddEstudiante.cs" />
+    <Compile Include="Backend\Controllers\Get\GetPrograma.cs" />
+    <Compile Include="Backend\Controllers\Get\GetRol.cs" />
+    <Compile Include="Backend\Controllers\Post\AddUsuario.cs" />
+    <Compile Include="Backend\Controllers\Post\AddPrograma.cs" />
     <Compile Include="Frontend\Estudiante\FormularioAlumno.cs">
       <SubType>Form</SubType>
     </Compile>

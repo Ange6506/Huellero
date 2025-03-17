@@ -6,8 +6,6 @@ namespace Huellero
     partial class FormularioAlumno
     {
         private System.ComponentModel.IContainer components = null;
-        private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox txtIdentificacion;
         private System.Windows.Forms.ComboBox comboBoxPrograma;
         private System.Windows.Forms.DateTimePicker dateTimePickerInicio;
         private System.Windows.Forms.DateTimePicker dateTimePickerFin;
@@ -33,8 +31,6 @@ namespace Huellero
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormularioAlumno));
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtIdentificacion = new System.Windows.Forms.TextBox();
             this.comboBoxPrograma = new System.Windows.Forms.ComboBox();
             this.dateTimePickerInicio = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerFin = new System.Windows.Forms.DateTimePicker();
@@ -48,6 +44,9 @@ namespace Huellero
             this.txtHorasSemanales = new System.Windows.Forms.TextBox();
             this.txtSemestre = new System.Windows.Forms.TextBox();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.txtIdentificacion = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.Asignatura = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.Semestre_academico = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -62,25 +61,10 @@ namespace Huellero
             this.lblNombre_Estudiante = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.Asignatura = new System.Windows.Forms.Label();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(55, 170);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(234, 20);
-            this.txtNombre.TabIndex = 0;
-            // 
-            // txtIdentificacion
-            // 
-            this.txtIdentificacion.Location = new System.Drawing.Point(55, 230);
-            this.txtIdentificacion.Name = "txtIdentificacion";
-            this.txtIdentificacion.Size = new System.Drawing.Size(234, 20);
-            this.txtIdentificacion.TabIndex = 1;
             // 
             // comboBoxPrograma
             // 
@@ -174,6 +158,8 @@ namespace Huellero
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.materialCard1.Controls.Add(this.txtIdentificacion);
+            this.materialCard1.Controls.Add(this.txtNombre);
             this.materialCard1.Controls.Add(this.Asignatura);
             this.materialCard1.Controls.Add(this.pictureBox3);
             this.materialCard1.Controls.Add(this.Semestre_academico);
@@ -198,9 +184,7 @@ namespace Huellero
             this.materialCard1.Controls.Add(this.Programa);
             this.materialCard1.Controls.Add(this.comboBoxPrograma);
             this.materialCard1.Controls.Add(this.Identificacion);
-            this.materialCard1.Controls.Add(this.txtIdentificacion);
             this.materialCard1.Controls.Add(this.lblNombre_Estudiante);
-            this.materialCard1.Controls.Add(this.txtNombre);
             this.materialCard1.Controls.Add(this.pictureBox1);
             this.materialCard1.Controls.Add(this.label1);
             this.materialCard1.Depth = 0;
@@ -212,6 +196,29 @@ namespace Huellero
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard1.Size = new System.Drawing.Size(637, 642);
             this.materialCard1.TabIndex = 15;
+            // 
+            // txtIdentificacion
+            // 
+            this.txtIdentificacion.Location = new System.Drawing.Point(55, 230);
+            this.txtIdentificacion.Name = "txtIdentificacion";
+            this.txtIdentificacion.Size = new System.Drawing.Size(234, 20);
+            this.txtIdentificacion.TabIndex = 35;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(55, 170);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(234, 20);
+            this.txtNombre.TabIndex = 34;
+            // 
+            // Asignatura
+            // 
+            this.Asignatura.AutoSize = true;
+            this.Asignatura.Location = new System.Drawing.Point(55, 465);
+            this.Asignatura.Name = "Asignatura";
+            this.Asignatura.Size = new System.Drawing.Size(57, 13);
+            this.Asignatura.TabIndex = 33;
+            this.Asignatura.Text = "Asignatura";
             // 
             // pictureBox3
             // 
@@ -343,17 +350,9 @@ namespace Huellero
             this.label1.TabIndex = 3;
             this.label1.Text = "Registrar Estudiante";
             // 
-            // Asignatura
-            // 
-            this.Asignatura.AutoSize = true;
-            this.Asignatura.Location = new System.Drawing.Point(55, 465);
-            this.Asignatura.Name = "Asignatura";
-            this.Asignatura.Size = new System.Drawing.Size(57, 13);
-            this.Asignatura.TabIndex = 33;
-            this.Asignatura.Text = "Asignatura";
-            // 
             // FormularioAlumno
             // 
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1115, 742);
             this.Controls.Add(this.materialCard1);
@@ -383,5 +382,7 @@ namespace Huellero
         private Label Semestre_academico;
         private PictureBox pictureBox3;
         private Label Asignatura;
+        private TextBox txtIdentificacion;
+        private TextBox txtNombre;
     }
 }

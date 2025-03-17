@@ -1,17 +1,18 @@
 ﻿using Npgsql;
-using System.Threading.Tasks;
 using System;
+using System.Threading.Tasks;
 using Dapper;
+using Huellero.Backend.DatabaseConnection; // Asegúrate de que el namespace sea correcto
 
 namespace Huellero.Controllers
 {
     internal class UpdateEstudiante
     {
-        private readonly string connectionString = "Host=localhost;Username=postgres;Password=Admin;Database=RegisterAttendance;CommandTimeout=30";
+        private readonly DatabaseConnection _databaseConnection;
 
         public UpdateEstudiante()
         {
-            // Constructor vacío
+            _databaseConnection = new DatabaseConnection();
         }
 
         public async Task<bool> EditarEstudianteAsync(int idEstudiante, string programa, string semestreAcademico,
@@ -21,9 +22,12 @@ namespace Huellero.Controllers
         {
             try
             {
-                using (var connection = new NpgsqlConnection(connectionString))
+                using (var connection = await _databaseConnection.GetConnectionAsync())
                 {
-                    await connection.OpenAsync();
+                    if (connection.State != System.Data.ConnectionState.Open)
+                    {
+                        await connection.OpenAsync();
+                    }
 
                     using (var transaction = connection.BeginTransaction())
                     {
@@ -61,14 +65,14 @@ namespace Huellero.Controllers
                                 FechaFinal = fechaFinal
                             }, transaction);
 
-                            await transaction.CommitAsync(); // Confirmar cambios
+                            await transaction.CommitAsync();
 
                             Console.WriteLine($"Filas afectadas: {rowsAffected}");
                             return rowsAffected > 0;
                         }
                         catch (Exception ex)
                         {
-                            await transaction.RollbackAsync(); // Deshacer cambios si hay error
+                            await transaction.RollbackAsync();
                             Console.WriteLine($"Error en EditarEstudianteAsync (rollback ejecutado): {ex.Message}");
                             return false;
                         }

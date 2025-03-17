@@ -6,14 +6,19 @@ using Microsoft.AspNetCore.Mvc;
 using Npgsql;
 using DPFP;
 using DPFP.Verification;
+using Huellero.Backend.DatabaseConnection;
 
 namespace Huellero.Controllers.Post
-
 {
     public class AddAsistenciaController : ControllerBase
     {
-        private readonly string _connectionString = "Host=localhost;Username=postgres;Password=Admin;Database=RegisterAttendance;CommandTimeout=30";
+        private readonly DatabaseConnection _databaseConnection;
         private readonly Verification _verificator = new Verification();
+
+        public AddAsistenciaController()
+        {
+            _databaseConnection = new DatabaseConnection();
+        }
 
         [HttpPost]
         public async Task<IActionResult> AddAsistencia([FromBody] dynamic data)
@@ -26,11 +31,8 @@ namespace Huellero.Controllers.Post
 
             try
             {
-                using (NpgsqlConnection connection = new NpgsqlConnection(_connectionString))
+                using (var connection = await _databaseConnection.GetConnectionAsync())
                 {
-                    await connection.OpenAsync();
-
-                    // Obtener todos los estudiantes con sus huellas
                     string sql = "SELECT id_estudiantes, huella FROM estudiantes";
                     using (var cmd = new NpgsqlCommand(sql, connection))
                     using (var reader = await cmd.ExecuteReaderAsync())
@@ -51,7 +53,7 @@ namespace Huellero.Controllers.Post
 
                                 if (result.Verified)
                                 {
-                                    reader.Close(); // Cerrar el lector antes de ejecutar otra consulta
+                                    reader.Close();
                                     return await RegistrarAsistencia(idEstudiante, connection);
                                 }
                             }
@@ -70,7 +72,6 @@ namespace Huellero.Controllers.Post
         {
             try
             {
-                // Obtener el ID de est_x_semestre
                 string sqlSemestre = "SELECT id_est_x_semestre FROM est_x_semestre WHERE id_estudiante = @id";
                 int? idEstXSemestre = null;
 
@@ -85,7 +86,6 @@ namespace Huellero.Controllers.Post
                     return BadRequest(new { message = "Estudiante no está registrado en un semestre." });
                 }
 
-                // Verificar si hay una entrada sin salida
                 string sqlAsistencia = "SELECT id_asistencia, fecha_hora_entrada FROM asistencia WHERE id_est_x_semestre = @id AND fecha_hora_salida IS NULL LIMIT 1";
                 int? idAsistencia = null;
                 DateTime? fechaEntrada = null;
@@ -105,7 +105,11 @@ namespace Huellero.Controllers.Post
 
                 if (idAsistencia.HasValue)
                 {
-                    // Registrar salida
+                    if (fechaEntrada.HasValue && (DateTime.UtcNow - fechaEntrada.Value).TotalMinutes < 3)
+                    {
+                        return BadRequest(new { message = "Debe esperar al menos 3 minutos antes de registrar la salida." });
+                    }
+
                     string sqlUpdate = "UPDATE asistencia SET fecha_hora_salida = NOW() WHERE id_asistencia = @id RETURNING fecha_hora_salida";
                     DateTime fechaSalida;
 
@@ -125,7 +129,6 @@ namespace Huellero.Controllers.Post
                 }
                 else
                 {
-                    // Registrar entrada
                     string sqlInsert = "INSERT INTO asistencia (fecha_hora_entrada, id_est_x_semestre) VALUES (NOW(), @id) RETURNING id_asistencia, fecha_hora_entrada";
                     using (var cmdInsert = new NpgsqlCommand(sqlInsert, connection))
                     {

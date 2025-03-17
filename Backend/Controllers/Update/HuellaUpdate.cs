@@ -2,18 +2,30 @@
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Huellero.Backend.DatabaseConnection; // Asegúrate de que el namespace sea correcto
 
 namespace Huellero.Controllers.Update
 {
     public class HuellaUpdate
     {
+        private readonly DatabaseConnection _databaseConnection;
+
+        public HuellaUpdate()
+        {
+            _databaseConnection = new DatabaseConnection();
+        }
+
         public async Task<bool> GuardarHuellaEnBD(int idEstudiante, byte[] huella)
         {
             try
             {
-                using (var conexion = new NpgsqlConnection("Host=localhost;Username=postgres;Password=Admin;Database=RegisterAttendance;CommandTimeout=30"))
+                using (var conexion = await _databaseConnection.GetConnectionAsync())
                 {
-                    await conexion.OpenAsync();
+                    if (conexion.State != System.Data.ConnectionState.Open)
+                    {
+                        await conexion.OpenAsync();
+                    }
+
                     string query = "UPDATE estudiantes SET huella = @Huella WHERE id_estudiantes = @Id";
 
                     using (var cmd = new NpgsqlCommand(query, conexion))

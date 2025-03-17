@@ -1,14 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Threading.Tasks;
 using Npgsql;
+using Huellero.Backend.DatabaseConnection;
 
 namespace Huellero.Controllers.Get
 {
     public class GetAsistencia
     {
-        private readonly string _connectionString = "Host=localhost;Username=postgres;Password=Admin;Database=RegisterAttendance;CommandTimeout=30";
+        private readonly DatabaseConnection _databaseConnection;
+
+        public GetAsistencia()
+        {
+            _databaseConnection = new DatabaseConnection();
+        }
 
         public async Task<List<dynamic>> GetAsistenciaAsync()
         {
@@ -16,10 +21,8 @@ namespace Huellero.Controllers.Get
 
             try
             {
-                using (var connection = new NpgsqlConnection(_connectionString))
+                using (var connection = await _databaseConnection.GetConnectionAsync())
                 {
-                    await connection.OpenAsync();
-
                     string query = @"
                         SELECT p.programa, a.fecha_hora_entrada, a.fecha_hora_salida, 
                                e.identificacion, e.nombre_del_estudiante 

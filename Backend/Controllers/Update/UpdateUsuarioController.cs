@@ -2,28 +2,30 @@
 using System.Data;
 using System.Threading.Tasks;
 using Npgsql;
+using Huellero.Backend.DatabaseConnection; // Asegúrate de que el namespace sea correcto
 
 namespace Huellero.Controllers.Update
 {
     public class UpdateUsuarioController
     {
-        private readonly string _connectionString = "Host=localhost;Username=postgres;Password=Admin;Database=RegisterAttendance;CommandTimeout=30";
-
         public async Task<bool> ActualizarUsuarioAsync(int idUsuario, string username, string password, int idRol, string estado)
         {
             try
             {
-                using (var connection = new NpgsqlConnection(_connectionString))
+                using (var connection = await new DatabaseConnection().GetConnectionAsync())
                 {
-                    await connection.OpenAsync();
+                    if (connection.State != ConnectionState.Open)
+                    {
+                        await connection.OpenAsync();
+                    }
 
                     string query = @"
-                UPDATE usuarios 
-                SET username = @Username, 
-                    password = @Password, 
-                    id_rol = @IdRol, 
-                    estado = @Estado
-                WHERE id_usuario = @IdUsuario";
+                        UPDATE usuarios 
+                        SET username = @Username, 
+                            password = @Password, 
+                            id_rol = @IdRol, 
+                            estado = @Estado
+                        WHERE id_usuario = @IdUsuario";
 
                     using (var command = new NpgsqlCommand(query, connection))
                     {
@@ -32,7 +34,7 @@ namespace Huellero.Controllers.Update
                         command.Parameters.AddWithValue("@Password", password);
                         command.Parameters.AddWithValue("@IdRol", idRol);
 
-                        // 🔹 Convertir "Activo" en true y "Inactivo" en false
+                        // Convertir "activo" en true y "inactivo" en false
                         bool estadoBooleano = estado.ToLower() == "activo";
                         command.Parameters.AddWithValue("@Estado", estadoBooleano);
 
@@ -46,7 +48,6 @@ namespace Huellero.Controllers.Update
                 Console.WriteLine($"Error al actualizar usuario: {ex.Message}");
                 return false;
             }
-        
+        }
     }
-}
 }

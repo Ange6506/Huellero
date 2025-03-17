@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Threading.Tasks;
 using Npgsql;
 using System.Windows.Forms;
+using Huellero.Backend.DatabaseConnection;
 
 namespace Huellero.Controllers
 {
     public class GetRol
     {
-        public string connectionString = "Host=localhost;Username=postgres;Password=Admin;Database=RegisterAttendance;CommandTimeout=30";
+        private readonly DatabaseConnection _databaseConnection;
+
+        public GetRol()
+        {
+            _databaseConnection = new DatabaseConnection();
+        }
 
         public async Task<List<dynamic>> GetRolesAsync()
         {
@@ -17,20 +22,9 @@ namespace Huellero.Controllers
 
             try
             {
-                using (var connection = new NpgsqlConnection(connectionString))
+                using (var connection = await _databaseConnection.GetConnectionAsync())
                 {
-                    try
-                    {
-                        await connection.OpenAsync();
-                        MessageBox.Show("Conexión exitosa.");
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Error de conexión: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return roles; // Devuelve la lista vacía si la conexión falla
-                    }
-
-                    // Consulta corregida
+                    // Consulta para obtener los roles ordenados por descripción
                     string query = @"SELECT id_rol, descripcion FROM public.rol ORDER BY descripcion";
 
                     using (var command = new NpgsqlCommand(query, connection))
@@ -46,7 +40,7 @@ namespace Huellero.Controllers
                             var rol = new
                             {
                                 IdRol = reader.GetInt32(0),
-                                Descripcion = reader.GetString(1) // Cambio de NombreRol a Descripcion
+                                Descripcion = reader.GetString(1)
                             };
                             roles.Add(rol);
                         }

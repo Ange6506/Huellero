@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Threading.Tasks;
 using Npgsql;
 using System.Windows.Forms;
+using Huellero.Backend.DatabaseConnection;
 
 namespace Huellero.Controllers
 {
     public class GetPrograma
     {
-        public string connectionString = "Host=localhost;Username=postgres;Password=Admin;Database=RegisterAttendance;CommandTimeout=30";
+        private readonly DatabaseConnection _databaseConnection;
+
+        public GetPrograma()
+        {
+            _databaseConnection = new DatabaseConnection();
+        }
 
         public async Task<List<dynamic>> GetProgramasAsync()
         {
@@ -17,20 +22,10 @@ namespace Huellero.Controllers
 
             try
             {
-                using (var connection = new NpgsqlConnection(connectionString))
+                using (var connection = await _databaseConnection.GetConnectionAsync())
                 {
-                    try
-                    {
-                        await connection.OpenAsync();
-                        MessageBox.Show("Conexión exitosa.");
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Error de conexión: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return programas;
-                    }
 
-                    // Consulta actualizada para obtener el username en lugar del id_usuario
+                    // Consulta para obtener los programas con el username del usuario
                     string query = @"
                         SELECT p.id_programa, p.programa, p.fecha_ingreso, p.hora_ingreso, 
                                COALESCE(u.username, 'Desconocido') AS username, p.estado

@@ -10,12 +10,20 @@ namespace Huellero
     public partial class AgregarProgramaForm : Form
     {
         private readonly AddPrograma programaService = new AddPrograma();
+        private Timer timer;
 
         public AgregarProgramaForm()
         {
-                InitializeComponent();
-    this.StartPosition = FormStartPosition.CenterScreen;
+            InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             txtUsuario.Text = ObtenerUsuarioLogueado();
+
+            // Asigna la hora actual al abrir la ventana
+            txtHoraIngreso.Text = DateTime.Now.ToString("HH:mm"); // Formato 24h
+            txtFechaIngreso.Value = DateTime.Now;
+
+            // Opcional: Actualizar la hora en tiempo real
+            IniciarTimer();
         }
 
         private string ObtenerUsuarioLogueado()
@@ -23,11 +31,15 @@ namespace Huellero
             return Login.UsuarioActual ?? "Desconocido";
         }
 
-
-
+        private void IniciarTimer()
+        {
+            timer = new Timer();
+            timer.Interval = 1000; // Actualiza cada 1 segundo
+            timer.Tick += (s, e) => txtHoraIngreso.Text = DateTime.Now.ToString("HH:mm");
+            timer.Start();
+        }
 
         private async void BtnAgregar_Click(object sender, EventArgs e)
-
         {
             lblMensaje.Text = "";
             lblMensaje.ForeColor = Color.Red;

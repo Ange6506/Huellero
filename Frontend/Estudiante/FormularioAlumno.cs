@@ -24,21 +24,10 @@ namespace Huellero
         {
             InitializeComponent();
             CargarProgramas();
-            InicializarPlaceholders();
+        
         }
 
-        private void InicializarPlaceholders()
-        {
-            ConfigurarPlaceholder(txtNombre, "Nombre del estudiante");
-            ConfigurarPlaceholder(txtIdentificacion, "Identificación");
-            ConfigurarPlaceholder(txtAsignatura, "Asignatura");
-            ConfigurarPlaceholder(txtEspecialidad, "Especialidad");
-            ConfigurarPlaceholder(txtDiasSemana, "Días de la Semana");
-            ConfigurarPlaceholder(txtHorasDia, "Horas por Día");
-            ConfigurarPlaceholder(txtSemanasRotacion, "Semanas de Rotación");
-            ConfigurarPlaceholder(txtHorasSemanales, "Número de Horas Semanales");
-            ConfigurarPlaceholder(txtSemestre, "Semestre Académico");
-        }
+       
 
         private void ConfigurarPlaceholder(TextBox textBox, string placeholder)
         {
@@ -181,5 +170,7 @@ namespace Huellero
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
+
+  
     }
 }

@@ -37,12 +37,21 @@
             this.btnListEstudiante = new System.Windows.Forms.Button();
             this.btnListAsistencia = new System.Windows.Forms.Button();
             this.btnListPrograma = new System.Windows.Forms.Button();
-            this.Cerrar_Sesion = new System.Windows.Forms.Button();
+            this.ListUsuarios = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.materialCard1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(258, 365);
+            this.btnRegistrar.Location = new System.Drawing.Point(656, 22);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(138, 30);
             this.btnRegistrar.TabIndex = 0;
@@ -51,7 +60,7 @@
             // 
             // btnVerificar
             // 
-            this.btnVerificar.Location = new System.Drawing.Point(258, 137);
+            this.btnVerificar.Location = new System.Drawing.Point(140, 171);
             this.btnVerificar.Name = "btnVerificar";
             this.btnVerificar.Size = new System.Drawing.Size(138, 30);
             this.btnVerificar.TabIndex = 1;
@@ -60,7 +69,7 @@
             // 
             // btnFormularioAlumno
             // 
-            this.btnFormularioAlumno.Location = new System.Drawing.Point(428, 188);
+            this.btnFormularioAlumno.Location = new System.Drawing.Point(524, 229);
             this.btnFormularioAlumno.Name = "btnFormularioAlumno";
             this.btnFormularioAlumno.Size = new System.Drawing.Size(136, 30);
             this.btnFormularioAlumno.TabIndex = 2;
@@ -69,7 +78,7 @@
             // 
             // btnAgregarUsuario
             // 
-            this.btnAgregarUsuario.Location = new System.Drawing.Point(428, 137);
+            this.btnAgregarUsuario.Location = new System.Drawing.Point(524, 171);
             this.btnAgregarUsuario.Name = "btnAgregarUsuario";
             this.btnAgregarUsuario.Size = new System.Drawing.Size(136, 30);
             this.btnAgregarUsuario.TabIndex = 3;
@@ -78,7 +87,7 @@
             // 
             // btnAgregarPrograma
             // 
-            this.btnAgregarPrograma.Location = new System.Drawing.Point(428, 243);
+            this.btnAgregarPrograma.Location = new System.Drawing.Point(524, 288);
             this.btnAgregarPrograma.Name = "btnAgregarPrograma";
             this.btnAgregarPrograma.Size = new System.Drawing.Size(136, 30);
             this.btnAgregarPrograma.TabIndex = 4;
@@ -87,7 +96,7 @@
             // 
             // btnListEstudiante
             // 
-            this.btnListEstudiante.Location = new System.Drawing.Point(260, 243);
+            this.btnListEstudiante.Location = new System.Drawing.Point(140, 288);
             this.btnListEstudiante.Name = "btnListEstudiante";
             this.btnListEstudiante.Size = new System.Drawing.Size(136, 30);
             this.btnListEstudiante.TabIndex = 6;
@@ -96,7 +105,7 @@
             // 
             // btnListAsistencia
             // 
-            this.btnListAsistencia.Location = new System.Drawing.Point(258, 302);
+            this.btnListAsistencia.Location = new System.Drawing.Point(140, 354);
             this.btnListAsistencia.Name = "btnListAsistencia";
             this.btnListAsistencia.Size = new System.Drawing.Size(138, 30);
             this.btnListAsistencia.TabIndex = 7;
@@ -105,28 +114,85 @@
             // 
             // btnListPrograma
             // 
-            this.btnListPrograma.Location = new System.Drawing.Point(258, 188);
+            this.btnListPrograma.Location = new System.Drawing.Point(140, 229);
             this.btnListPrograma.Name = "btnListPrograma";
             this.btnListPrograma.Size = new System.Drawing.Size(138, 30);
             this.btnListPrograma.TabIndex = 8;
             this.btnListPrograma.Text = "Lista Programa";
             this.btnListPrograma.Click += new System.EventHandler(this.BtnListPrograma_Click);
             // 
-            // Cerrar_Sesion
+            // ListUsuarios
             // 
-            this.Cerrar_Sesion.Location = new System.Drawing.Point(728, 467);
-            this.Cerrar_Sesion.Name = "Cerrar_Sesion";
-            this.Cerrar_Sesion.Size = new System.Drawing.Size(121, 23);
-            this.Cerrar_Sesion.TabIndex = 9;
-            this.Cerrar_Sesion.Text = "Cerrar Sesion";
-            this.Cerrar_Sesion.UseVisualStyleBackColor = true;
-            this.Cerrar_Sesion.Click += new System.EventHandler(this.Cerrar_Sesion_Click);
+            this.ListUsuarios.Location = new System.Drawing.Point(524, 354);
+            this.ListUsuarios.Name = "ListUsuarios";
+            this.ListUsuarios.Size = new System.Drawing.Size(138, 30);
+            this.ListUsuarios.TabIndex = 10;
+            this.ListUsuarios.Text = "Lista Usuarios";
+            this.ListUsuarios.Click += new System.EventHandler(this.ListUsuarios_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(324, 229);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(156, 155);
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
+            // materialCard1
+            // 
+            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.materialCard1.Controls.Add(this.pictureBox3);
+            this.materialCard1.Controls.Add(this.pictureBox2);
+            this.materialCard1.Controls.Add(this.label1);
+            this.materialCard1.Depth = 0;
+            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard1.Location = new System.Drawing.Point(121, 89);
+            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard1.Name = "materialCard1";
+            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard1.Size = new System.Drawing.Size(596, 336);
+            this.materialCard1.TabIndex = 12;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox2.Location = new System.Drawing.Point(248, 17);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(64, 54);
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(257, 83);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 20);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Menu";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
+            this.pictureBox3.Location = new System.Drawing.Point(553, 4);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(37, 31);
+            this.pictureBox3.TabIndex = 31;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.PictureBox3_Click);
             // 
             // main
             // 
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(873, 514);
-            this.Controls.Add(this.Cerrar_Sesion);
+            this.ClientSize = new System.Drawing.Size(828, 514);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.ListUsuarios);
             this.Controls.Add(this.btnListPrograma);
             this.Controls.Add(this.btnListAsistencia);
             this.Controls.Add(this.btnListEstudiante);
@@ -135,8 +201,14 @@
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.btnVerificar);
             this.Controls.Add(this.btnFormularioAlumno);
+            this.Controls.Add(this.materialCard1);
             this.Name = "main";
             this.Text = "Main";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.materialCard1.ResumeLayout(false);
+            this.materialCard1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -150,7 +222,12 @@
         private System.Windows.Forms.Button btnListEstudiante;
         private System.Windows.Forms.Button btnListAsistencia;
         private System.Windows.Forms.Button btnListPrograma;
-        private System.Windows.Forms.Button Cerrar_Sesion;
+        private System.Windows.Forms.Button ListUsuarios;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private MaterialSkin.Controls.MaterialCard materialCard1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }
 

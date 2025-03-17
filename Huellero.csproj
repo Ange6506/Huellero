@@ -533,6 +533,9 @@
     <EmbeddedResource Include="Frontend\Estudiante\ListaAlumnosModel.resx">
       <DependentUpon>ListaAlumnosModel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frontend\Huella\capturaHuella.resx">
+      <DependentUpon>capturaHuella.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frontend\Huella\CaptureForm.resx">
       <DependentUpon>CaptureForm.cs</DependentUpon>
     </EmbeddedResource>

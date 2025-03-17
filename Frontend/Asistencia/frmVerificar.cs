@@ -155,5 +155,11 @@ namespace Huellero
                 MessageBox.Show("Error al registrar asistencia: " + ex.Message);
             }
         }
+
+        private void PictureBox3_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
     }
 }

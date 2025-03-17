@@ -114,5 +114,10 @@ namespace Huellero.Frontend.Programa
 
     }
 
-}
+        private void PictureBox3_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+    }
 }

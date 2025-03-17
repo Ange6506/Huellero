@@ -68,7 +68,7 @@ namespace Huellero
             int? idUsuario = await usuarioService.AgregarUsuarioAsync(idRol, username, password, estado);
 
             if (idUsuario.HasValue)
-            {
+             {
                 lblMensaje.ForeColor = Color.Green;
                 lblMensaje.Text = "Usuario registrado con éxito.";
                 txtUsername.Clear();
@@ -81,6 +81,17 @@ namespace Huellero
                 lblMensaje.ForeColor = Color.Red;
                 lblMensaje.Text = "Error al registrar usuario.";
             }
+        }
+
+        private void PictureBox3_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void AgregarUsuarioForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

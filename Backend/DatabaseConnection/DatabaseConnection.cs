@@ -9,7 +9,7 @@ namespace Huellero.Backend.DatabaseConnection
 {
     class DatabaseConnection
     {
-        private readonly string _connectionString = "Host=localhost;Username=postgres;Password=Admin;Database=Register;CommandTimeout=30";
+        private readonly string _connectionString = "Host=10.30.1.238;Port=5432;Database=RegisterPrueba;Username=postgres;Password=Admin";
 
         public async Task<NpgsqlConnection> GetConnectionAsync()
         {

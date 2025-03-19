@@ -10,8 +10,6 @@ namespace Huellero.Backend.DatabaseConnection
     class DatabaseConnection
     {
         private readonly string _connectionString = "Host=10.30.1.238;Port=5432;Database=RegisterAsistencia;Username=postgres;Password=Admin";
-
-
         public async Task<NpgsqlConnection> GetConnectionAsync()
         {
             var connection = new NpgsqlConnection(_connectionString);

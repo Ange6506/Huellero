@@ -108,12 +108,14 @@ namespace Huellero
                     return;
                 }
 
-                // Verificar si hay una entrada activa sin salida registrada
-                string asistenciaQuery = @"SELECT id_asistencia FROM asistencia 
-                                           WHERE id_est_x_semestre = @id AND fecha_hora_salida IS NULL 
+                // Consultar si existe una entrada activa (sin salida) y obtener también la fecha de entrada.
+                string asistenciaQuery = @"SELECT id_asistencia, fecha_hora_entrada FROM asistencia 
+                                           WHERE id_est_x_semestre = @id 
+                                           AND fecha_hora_salida IS NULL 
                                            ORDER BY fecha_hora_entrada DESC LIMIT 1";
 
                 int? idAsistencia = null;
+                DateTime? fechaEntrada = null;
 
                 using (var asistenciaCmd = new NpgsqlCommand(asistenciaQuery, conn))
                 {
@@ -123,34 +125,46 @@ namespace Huellero
                         if (reader.Read())
                         {
                             idAsistencia = reader.GetInt32(0);
+                            fechaEntrada = reader.GetDateTime(1);
                         }
                     }
                 }
 
-                if (idAsistencia.HasValue)
+                // Verificar si el registro activo corresponde al mismo día.
+                // Si la fecha de entrada es anterior al día actual, se asume que es un nuevo día.
+                if (idAsistencia.HasValue && fechaEntrada.HasValue &&
+                    fechaEntrada.Value.Date == DateTime.Now.Date)
                 {
-                    // Registrar la salida
-                    string updateQuery = "UPDATE asistencia SET fecha_hora_salida = NOW() WHERE id_asistencia = @id";
-                    using (var updateCmd = new NpgsqlCommand(updateQuery, conn))
+                    // Registrar salida únicamente si el registro es del mismo día.
+                    // Además, si es exactamente medianoche (00:00), no se registra la salida.
+                    if (DateTime.Now.TimeOfDay.Hours == 0)
                     {
-                        updateCmd.Parameters.AddWithValue("id", idAsistencia.Value);
-                        updateCmd.ExecuteNonQuery();
+                        // Si es medianoche, se ignora la salida y se procede a registrar una nueva entrada.
+                        idAsistencia = null;
                     }
+                    else
+                    {
+                        string updateQuery = "UPDATE asistencia SET fecha_hora_salida = NOW() WHERE id_asistencia = @id";
+                        using (var updateCmd = new NpgsqlCommand(updateQuery, conn))
+                        {
+                            updateCmd.Parameters.AddWithValue("id", idAsistencia.Value);
+                            updateCmd.ExecuteNonQuery();
+                        }
 
-                    MessageBox.Show("Salida registrada exitosamente.");
+                        MessageBox.Show("Salida registrada exitosamente.");
+                        return;
+                    }
                 }
-                else
-                {
-                    // Registrar una nueva entrada
-                    string insertQuery = @"INSERT INTO asistencia (fecha_hora_entrada, id_est_x_semestre) 
-                                           VALUES (NOW(), @id) RETURNING id_asistencia";
 
-                    using (var insertCmd = new NpgsqlCommand(insertQuery, conn))
-                    {
-                        insertCmd.Parameters.AddWithValue("id", idEstXSemestre);
-                        int newId = (int)insertCmd.ExecuteScalar();
-                        MessageBox.Show($"Entrada registrada exitosamente. ID Asistencia: {newId}");
-                    }
+                // Si no hay registro activo o si corresponde a un día anterior, se registra una nueva entrada.
+                string insertQuery = @"INSERT INTO asistencia (fecha_hora_entrada, id_est_x_semestre) 
+                                       VALUES (NOW(), @id) RETURNING id_asistencia";
+
+                using (var insertCmd = new NpgsqlCommand(insertQuery, conn))
+                {
+                    insertCmd.Parameters.AddWithValue("id", idEstXSemestre);
+                    int newId = (int)insertCmd.ExecuteScalar();
+                    MessageBox.Show($"Entrada registrada exitosamente. ID Asistencia: {newId}");
                 }
             }
             catch (Exception ex)

@@ -51,7 +51,14 @@ namespace Huellero
                 btnListPrograma.Enabled = true;
                 btnVerificar.Enabled = true;
             }
-        
+            else if (Login.IdRolUsuario == 3) // Estudiante
+            {
+                // Mostrar directamente la ventana de verificación
+                frmVerificar verificar = new frmVerificar();
+                verificar.ShowDialog();
+                this.Close(); // Cerrar la ventana actual después de la verificación si es necesario
+            }
+
         }
 
     
@@ -115,8 +122,9 @@ namespace Huellero
                 // Reiniciar la aplicación
                 Application.Restart();
             }
-        
+        }
+
     }
 
-}
+
 }

@@ -520,12 +520,6 @@
     <Compile Include="Frontend\Estudiante\FormularioAlumno.Designer.cs">
       <DependentUpon>FormularioAlumno.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRegistrar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmRegistrar.Designer.cs">
-      <DependentUpon>frmRegistrar.cs</DependentUpon>
-    </Compile>
     <Compile Include="Frontend\Asistencia\frmVerificar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -587,9 +581,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frontend\Estudiante\FormularioAlumno.resx">
       <DependentUpon>FormularioAlumno.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmRegistrar.resx">
-      <DependentUpon>frmRegistrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frontend\Usuario\ListaUsuarioModel.resx">
       <DependentUpon>ListaUsuarioModel.cs</DependentUpon>

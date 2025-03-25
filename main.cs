@@ -54,11 +54,7 @@ namespace Huellero
         
         }
 
-        private void btnRegistrar_Click(object sender, EventArgs e)
-        {
-            frmRegistrar registrar = new frmRegistrar();
-            registrar.ShowDialog();
-        }
+    
 
         private void btnVerificar_Click(object sender, EventArgs e)
         {
@@ -112,21 +108,15 @@ namespace Huellero
 
         private void PictureBox3_Click(object sender, EventArgs e)
         {
-            // Confirmar si el usuario quiere cerrar sesión
             DialogResult result = MessageBox.Show("¿Estás seguro de que deseas cerrar sesión?", "Cerrar Sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
-                // Reiniciar variables de sesión
-                Login.IdRolUsuario = 0; // Restablecer el rol del usuario autenticado
-
-                // Mostrar el formulario de Login antes de cerrar main
-                Login login = new Login();
-
-                // Cerrar el formulario actual
-                this.Close();
+                // Reiniciar la aplicación
+                Application.Restart();
             }
-
-        }
+        
     }
+
+}
 }

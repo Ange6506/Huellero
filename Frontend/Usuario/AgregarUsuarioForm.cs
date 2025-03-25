@@ -33,7 +33,11 @@ namespace Huellero
                     cmbRoles.Items.Add(rol.Descripcion);
                 }
 
-                if (rolesDictionary.Count == 0)
+                if (rolesDictionary.Count > 0)
+                {
+                    cmbRoles.SelectedIndex = 0; // Selecciona el primer rol por defecto
+                }
+                else
                 {
                     lblMensaje.Text = "No hay roles disponibles.";
                 }
@@ -43,6 +47,7 @@ namespace Huellero
                 MessageBox.Show("Error al cargar los roles: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private async Task RegistrarUsuarioAsync()
         {
@@ -68,13 +73,11 @@ namespace Huellero
             int? idUsuario = await usuarioService.AgregarUsuarioAsync(idRol, username, password, estado);
 
             if (idUsuario.HasValue)
-             {
+            {
                 lblMensaje.ForeColor = Color.Green;
                 lblMensaje.Text = "Usuario registrado con éxito.";
-                txtUsername.Clear();
-                txtPassword.Clear();
-                cmbRoles.SelectedIndex = -1;
-                cmbEstado.SelectedIndex = -1;
+                this.DialogResult = DialogResult.OK;
+                this.Close(); // Cierra la ventana después del registro exitoso
             }
             else
             {
@@ -83,15 +86,13 @@ namespace Huellero
             }
         }
 
+
         private void PictureBox3_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
-        private void AgregarUsuarioForm_Load(object sender, EventArgs e)
-        {
-
-        }
+  
     }
 }

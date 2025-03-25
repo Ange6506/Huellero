@@ -70,10 +70,8 @@ namespace Huellero
                 {
                     MessageBox.Show($"Programa agregado con éxito. ID: {idPrograma}", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     lblMensaje.ForeColor = Color.Green;
-                    lblMensaje.Text = "Programa agregado con éxito.";
 
-                    txtPrograma.Clear();
-                    cbEstado.SelectedIndex = -1;
+                    this.Close(); // Cierra la ventana
                 }
                 else
                 {

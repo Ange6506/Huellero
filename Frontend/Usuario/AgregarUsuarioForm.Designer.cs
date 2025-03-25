@@ -125,12 +125,15 @@ namespace Huellero
             // 
             this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstado.Items.AddRange(new object[] {
-            "Activo",
-            "Inactivo"});
+    "Activo",
+    "Inactivo"
+});
+            this.cmbEstado.SelectedIndex = 0; // Selecciona "Activo" por defecto
             this.cmbEstado.Location = new System.Drawing.Point(55, 423);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(253, 21);
             this.cmbEstado.TabIndex = 8;
+
             // 
             // btnRegistrar
             // 
@@ -148,9 +151,8 @@ namespace Huellero
             this.lblMensaje.ForeColor = System.Drawing.Color.Red;
             this.lblMensaje.Location = new System.Drawing.Point(130, 455);
             this.lblMensaje.Name = "lblMensaje";
-            this.lblMensaje.Size = new System.Drawing.Size(85, 13);
+            this.lblMensaje.Size = new System.Drawing.Size(0, 13);
             this.lblMensaje.TabIndex = 10;
-      
             // 
             // materialCard1
             // 
@@ -206,7 +208,6 @@ namespace Huellero
             this.Controls.Add(this.materialCard1);
             this.Name = "AgregarUsuarioForm";
             this.Text = "Agregar Usuario";
-            this.Load += new System.EventHandler(this.AgregarUsuarioForm_Load);
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

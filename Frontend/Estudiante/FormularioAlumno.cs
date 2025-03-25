@@ -49,6 +49,7 @@ namespace Huellero
                     huellaEstudiante = Template.Bytes;
                     MessageBox.Show("La plantilla de huella está lista para la verificación.");
                     MessageBox.Show("Huella capturada correctamente");
+
                 }
                 else
                 {

@@ -29,7 +29,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>http://localhost/Huellero/</UpdateUrl>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationRevision>6</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -623,10 +623,18 @@
     <Analyzer Include="packages\MSTest.Analyzers.3.8.2\analyzers\dotnet\cs\MSTest.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Recursos\Fondo.jpeg" />
-    <Content Include="Recursos\IconoEditar.png" />
-    <Content Include="Recursos\IconoEliminar.png" />
-    <Content Include="Recursos\IconoHuella.png" />
+    <Content Include="Recursos\Fondo.jpeg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Recursos\IconoEditar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Recursos\IconoEliminar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Recursos\IconoHuella.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

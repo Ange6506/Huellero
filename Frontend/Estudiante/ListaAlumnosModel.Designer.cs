@@ -37,6 +37,7 @@
             // 
             this.dgvAlumnos.AllowUserToAddRows = false;
             this.dgvAlumnos.AllowUserToDeleteRows = false;
+            this.dgvAlumnos.AllowUserToOrderColumns = true;
             this.dgvAlumnos.BackgroundColor = System.Drawing.Color.White;
             this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAlumnos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {

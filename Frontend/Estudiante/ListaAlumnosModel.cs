@@ -123,8 +123,10 @@ namespace Huellero.Frontend.Estudiante
         private void FiltrarEstudiantes(string filtro)
         {
             dgvAlumnos.Rows.Clear();
-            string rutaEditar = @"C:\\Users\\DESARROLLO - SISTEMA\\Desktop\\Huellitas\\Huellero\\Recursos\\IconoEditar.png";
-            string rutaHuella = @"C:\\Users\\DESARROLLO - SISTEMA\\Desktop\\Huellitas\\Huellero\\Recursos\\IconoHuella.png";
+            string rutaRecursos = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Recursos");
+            string rutaEditar = Path.Combine(rutaRecursos, "IconoEditar.png");
+            string rutaHuella = Path.Combine(rutaRecursos, "IconoHuella.png");
+
 
             foreach (var estudiante in listaEstudiantes)
             {
@@ -230,7 +232,7 @@ namespace Huellero.Frontend.Estudiante
 
         private void Cerrar_Sesion_Click(object sender, EventArgs e)
         {
-            // Confirmar si el usuario quiere volver al menú principal
+            // Confirmar si el usuario quiere volver al menú principal 
             DialogResult result = MessageBox.Show(
                 "¿Deseas volver al menú principal?",
                 "Cerrar Sesión",

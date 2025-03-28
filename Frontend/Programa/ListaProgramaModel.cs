@@ -10,7 +10,7 @@ namespace Huellero.Frontend.Programa
 {
     public partial class ListaProgramaModel : Form
     {
-        private readonly string rutaEditar = @"C:\\Users\\DESARROLLO - SISTEMA\\Desktop\\Huellitas\\Huellero\\Recursos\\IconoEditar.png";
+        private readonly string rutaEditar = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Recursos", "IconoEditar.png");
         private readonly GetPrograma _getPrograma;
 
         public ListaProgramaModel()

@@ -38,33 +38,51 @@ namespace Huellero.Controllers
                     {
                         try
                         {
-                            string insertQuery = @"
-                                INSERT INTO usuarios (id_rol, username, password, estado) 
-                                VALUES (@idRol, @username, @password, @estado) 
-                                RETURNING id_usuario";
+                            // Verificar si el usuario ya existe por username
+                            string checkQuery = "SELECT id_usuario FROM usuarios WHERE username = @username";
+                            using (var checkCommand = new NpgsqlCommand(checkQuery, connection, transaction))
+                            {
+                                checkCommand.Parameters.AddWithValue("@username", username);
+                                var existingUserId = await checkCommand.ExecuteScalarAsync();
+                                if (existingUserId != null)
+                                {
+                                    MessageBox.Show("El usuario ya existe en el sistema.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    await transaction.RollbackAsync();
+                                    return null;
+                                }
+                            }
 
-                            int? idUsuario;
+                            // Obtener el último id_usuario
+                            string getLastIdQuery = "SELECT COALESCE(MAX(id_usuario), 0) FROM usuarios";
+                            int lastId;
+                            using (var getLastIdCommand = new NpgsqlCommand(getLastIdQuery, connection, transaction))
+                            {
+                                lastId = (int)await getLastIdCommand.ExecuteScalarAsync();
+                            }
+
+                            int newId = lastId + 1;
+
+                            // Insertar nuevo usuario con el nuevo id_usuario
+                            string insertQuery = @"INSERT INTO usuarios (id_usuario, id_rol, username, password, estado) 
+                                                   VALUES (@idUsuario, @idRol, @username, @password, @estado)";
+
                             using (var command = new NpgsqlCommand(insertQuery, connection, transaction))
                             {
+                                command.Parameters.AddWithValue("@idUsuario", newId);
                                 command.Parameters.AddWithValue("@idRol", idRol);
                                 command.Parameters.AddWithValue("@username", username);
                                 command.Parameters.AddWithValue("@password", password);
                                 command.Parameters.AddWithValue("@estado", estado);
 
-                                idUsuario = (int?)await command.ExecuteScalarAsync();
-                            }
-
-                            if (idUsuario == null)
-                            {
-                                throw new Exception("No se pudo obtener el ID del usuario registrado.");
+                                await command.ExecuteNonQueryAsync();
                             }
 
                             await transaction.CommitAsync();
 
-                            MessageBox.Show($"Usuario registrado con éxito. ID: {idUsuario}",
+                            MessageBox.Show($"Usuario registrado con éxito. ID: {newId}",
                                 "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            return idUsuario;
+                            return newId;
                         }
                         catch (Exception ex)
                         {

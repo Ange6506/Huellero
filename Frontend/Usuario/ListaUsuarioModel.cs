@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Huellero.Controllers;
@@ -11,7 +12,7 @@ namespace Huellero.Frontend.Usuario
     public partial class ListaUsuarioModel : Form
     {
         private readonly GetUsuarios _usuarioController;
-        private readonly string iconoEditarPath = @"C:\Users\DESARROLLO - SISTEMA\Desktop\Huellitas\Huellero\Recursos\IconoEditar.png";
+        private readonly string rutaEditar = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Recursos", "IconoEditar.png");
 
         public ListaUsuarioModel()
         {
@@ -23,23 +24,18 @@ namespace Huellero.Frontend.Usuario
 
         private void ConfigurarDataGridView()
         {
-            // Verifica si la columna "Editar" ya existe y elimínala
             if (dataGridView1.Columns.Contains("Editar"))
             {
                 dataGridView1.Columns.Remove("Editar");
             }
 
-            // Cambia la columna "Editar" a tipo imagen
             DataGridViewImageColumn editarColumn = new DataGridViewImageColumn
             {
                 Name = "Editar",
                 HeaderText = "Editar",
                 ImageLayout = DataGridViewImageCellLayout.Zoom
             };
-
             dataGridView1.Columns.Add(editarColumn);
-
-            // Asigna el evento de clic en celdas
             dataGridView1.CellContentClick += DataGridView1_CellContentClick;
         }
 
@@ -57,11 +53,7 @@ namespace Huellero.Frontend.Usuario
 
                 dataGridView1.Rows.Clear();
 
-                Image iconoEditar = null;
-                if (System.IO.File.Exists(iconoEditarPath))
-                {
-                    iconoEditar = Image.FromFile(iconoEditarPath);
-                }
+                Image iconoEditar = File.Exists(rutaEditar) ? Image.FromFile(rutaEditar) : null;
 
                 foreach (var usuario in usuarios)
                 {
@@ -69,7 +61,7 @@ namespace Huellero.Frontend.Usuario
                         usuario.IdUsuario,
                         usuario.Username,
                         usuario.Password,
-                        usuario.NombreRol, // 🔹 Mostrar el nombre del rol en lugar del ID
+                        usuario.NombreRol,
                         usuario.Estado ? "Activo" : "Inactivo",
                         iconoEditar
                     );
@@ -81,20 +73,16 @@ namespace Huellero.Frontend.Usuario
             }
         }
 
-
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Verifica si se hizo clic en la columna de edición
             if (e.ColumnIndex == dataGridView1.Columns["Editar"].Index && e.RowIndex >= 0)
             {
-                // Obtener datos del usuario seleccionado
                 int idUsuario = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
                 string username = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                 string password = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
                 string nombreRol = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
                 string estado = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
 
-                // Mostrar el formulario de actualización
                 UpdateUsuario updateForm = new UpdateUsuario(idUsuario, username, password, nombreRol, estado);
                 updateForm.ShowDialog();
             }

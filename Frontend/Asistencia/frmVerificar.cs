@@ -129,9 +129,19 @@ namespace Huellero
 
                 if (idAsistencia.HasValue && fechaEntrada.HasValue)
                 {
-                    TimeSpan diferenciaTiempo = DateTime.Now - fechaEntrada.Value;
+                    DateTime ahora = DateTime.Now;
+                    TimeSpan diferenciaTiempo = ahora - fechaEntrada.Value;
 
-                    if (diferenciaTiempo.TotalMinutes < 5)
+                    if (fechaEntrada.Value.Date < ahora.Date)
+                    {
+                        string resetQuery = "UPDATE asistencia SET fecha_hora_salida = NULL WHERE id_asistencia = @id";
+                        using (var resetCmd = new NpgsqlCommand(resetQuery, conn))
+                        {
+                            resetCmd.Parameters.AddWithValue("id", idAsistencia.Value);
+                            resetCmd.ExecuteNonQuery();
+                        }
+                    }
+                    else if (diferenciaTiempo.TotalMinutes < 5)
                     {
                         MessageBox.Show("Debe esperar al menos 5 minutos antes de registrar su salida.");
                         return;

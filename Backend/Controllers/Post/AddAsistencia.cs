@@ -103,52 +103,69 @@ namespace Huellero.Controllers.Post
                     }
                 }
 
+                DateTime now = DateTime.UtcNow;
+                DateTime hoy = now.Date;
+                DateTime ayer = hoy.AddDays(-1);
+
                 if (idAsistencia.HasValue)
                 {
-                    if (fechaEntrada.HasValue && (DateTime.UtcNow - fechaEntrada.Value).TotalMinutes < 3)
+                    if (fechaEntrada.HasValue && fechaEntrada.Value.Date == hoy)
                     {
-                        return BadRequest(new { message = "Debe esperar al menos 3 minutos antes de registrar la salida." });
+                        if ((now - fechaEntrada.Value).TotalMinutes < 3)
+                        {
+                            return BadRequest(new { message = "Debe esperar al menos 3 minutos antes de registrar la salida." });
+                        }
+
+                        string sqlUpdate = "UPDATE asistencia SET fecha_hora_salida = NOW() WHERE id_asistencia = @id RETURNING fecha_hora_salida";
+                        DateTime fechaSalida;
+
+                        using (var cmdUpdate = new NpgsqlCommand(sqlUpdate, connection))
+                        {
+                            cmdUpdate.Parameters.AddWithValue("id", idAsistencia.Value);
+                            fechaSalida = (DateTime)await cmdUpdate.ExecuteScalarAsync();
+                        }
+
+                        return Ok(new
+                        {
+                            message = "Salida registrada exitosamente.",
+                            id_asistencia = idAsistencia,
+                            fecha_hora_entrada = fechaEntrada,
+                            fecha_hora_salida = fechaSalida
+                        });
                     }
-
-                    string sqlUpdate = "UPDATE asistencia SET fecha_hora_salida = NOW() WHERE id_asistencia = @id RETURNING fecha_hora_salida";
-                    DateTime fechaSalida;
-
-                    using (var cmdUpdate = new NpgsqlCommand(sqlUpdate, connection))
+                    else
                     {
-                        cmdUpdate.Parameters.AddWithValue("id", idAsistencia.Value);
-                        fechaSalida = (DateTime)await cmdUpdate.ExecuteScalarAsync();
+                        // Si la última entrada fue de un día anterior, registra como nueva entrada en el nuevo día
+                        return await RegistrarNuevaEntrada(idEstXSemestre.Value, connection);
                     }
-
-                    return Ok(new
-                    {
-                        message = "Salida registrada exitosamente.",
-                        id_asistencia = idAsistencia,
-                        fecha_hora_entrada = fechaEntrada,
-                        fecha_hora_salida = fechaSalida
-                    });
                 }
                 else
                 {
-                    string sqlInsert = "INSERT INTO asistencia (fecha_hora_entrada, id_est_x_semestre) VALUES (NOW(), @id) RETURNING id_asistencia, fecha_hora_entrada";
-                    using (var cmdInsert = new NpgsqlCommand(sqlInsert, connection))
-                    {
-                        cmdInsert.Parameters.AddWithValue("id", idEstXSemestre);
-                        using (var reader = await cmdInsert.ExecuteReaderAsync())
-                        {
-                            await reader.ReadAsync();
-                            return Created("", new
-                            {
-                                message = "Entrada registrada exitosamente.",
-                                id_asistencia = reader.GetInt32(0),
-                                fecha_hora_entrada = reader.GetDateTime(1)
-                            });
-                        }
-                    }
+                    return await RegistrarNuevaEntrada(idEstXSemestre.Value, connection);
                 }
             }
             catch (Exception ex)
             {
                 return StatusCode(500, new { message = "Error al registrar asistencia.", error = ex.Message });
+            }
+        }
+
+        private async Task<IActionResult> RegistrarNuevaEntrada(int idEstXSemestre, NpgsqlConnection connection)
+        {
+            string sqlInsert = "INSERT INTO asistencia (fecha_hora_entrada, id_est_x_semestre) VALUES (NOW(), @id) RETURNING id_asistencia, fecha_hora_entrada";
+            using (var cmdInsert = new NpgsqlCommand(sqlInsert, connection))
+            {
+                cmdInsert.Parameters.AddWithValue("id", idEstXSemestre);
+                using (var reader = await cmdInsert.ExecuteReaderAsync())
+                {
+                    await reader.ReadAsync();
+                    return Created("", new
+                    {
+                        message = "Entrada registrada exitosamente.",
+                        id_asistencia = reader.GetInt32(0),
+                        fecha_hora_entrada = reader.GetDateTime(1)
+                    });
+                }
             }
         }
     }

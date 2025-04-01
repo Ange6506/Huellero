@@ -68,7 +68,6 @@ namespace Huellero
 
                 if (idPrograma != null)
                 {
-                    MessageBox.Show($"Programa agregado con éxito. ID: {idPrograma}", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     lblMensaje.ForeColor = Color.Green;
 
                     this.Close(); // Cierra la ventana

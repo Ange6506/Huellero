@@ -65,7 +65,14 @@ namespace Huellero
                                 {
                                     reader.Close();
                                     RegistrarAsistencia(idEstudiante, conn);
-                                    MessageBox.Show($"Huella verificada: {nombre}");
+
+                                    var msg = new Form();
+                                    var timer = new System.Windows.Forms.Timer();
+                                    timer.Interval = 3000;
+                                    timer.Tick += (s, e) => { msg.Close(); timer.Stop(); };
+                                    timer.Start();
+                                    MessageBox.Show(msg, $"Huella verificada: {nombre}", "Información");
+
                                     return;
                                 }
                             }
@@ -73,11 +80,21 @@ namespace Huellero
                     }
                 }
 
-                MessageBox.Show("Huella no reconocida.");
+                var msgNoMatch = new Form();
+                var timerNoMatch = new System.Windows.Forms.Timer();
+                timerNoMatch.Interval = 3000;
+                timerNoMatch.Tick += (s, e) => { msgNoMatch.Close(); timerNoMatch.Stop(); };
+                timerNoMatch.Start();
+                MessageBox.Show(msgNoMatch, "Huella no reconocida.", "Información");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al verificar la huella: " + ex.Message);
+                var msgError = new Form();
+                var timerError = new System.Windows.Forms.Timer();
+                timerError.Interval = 3000;
+                timerError.Tick += (s, e) => { msgError.Close(); timerError.Stop(); };
+                timerError.Start();
+                MessageBox.Show(msgError, "Error al verificar la huella: " + ex.Message, "Error");
             }
         }
 
@@ -102,7 +119,12 @@ namespace Huellero
 
                 if (!idEstXSemestre.HasValue)
                 {
-                    MessageBox.Show("El estudiante no está registrado en un semestre.");
+                    var msg = new Form();
+                    var timer = new System.Windows.Forms.Timer();
+                    timer.Interval = 3000;
+                    timer.Tick += (s, e) => { msg.Close(); timer.Stop(); };
+                    timer.Start();
+                    MessageBox.Show(msg, "El estudiante no está registrado en un semestre.", "Información");
                     return;
                 }
 
@@ -143,7 +165,12 @@ namespace Huellero
                     }
                     else if (diferenciaTiempo.TotalMinutes < 5)
                     {
-                        MessageBox.Show("Debe esperar al menos 5 minutos antes de registrar su salida.");
+                        var msg = new Form();
+                        var timer = new System.Windows.Forms.Timer();
+                        timer.Interval = 3000;
+                        timer.Tick += (s, e) => { msg.Close(); timer.Stop(); };
+                        timer.Start();
+                        MessageBox.Show(msg, "Debe esperar al menos 5 minutos antes de registrar su salida.", "Información");
                         return;
                     }
                     else
@@ -155,7 +182,12 @@ namespace Huellero
                             updateCmd.ExecuteNonQuery();
                         }
 
-                        MessageBox.Show("Salida registrada exitosamente.");
+                        var msg = new Form();
+                        var timer = new System.Windows.Forms.Timer();
+                        timer.Interval = 3000;
+                        timer.Tick += (s, e) => { msg.Close(); timer.Stop(); };
+                        timer.Start();
+                        MessageBox.Show(msg, "Salida registrada exitosamente.", "Información");
                         return;
                     }
                 }
@@ -167,12 +199,23 @@ namespace Huellero
                 {
                     insertCmd.Parameters.AddWithValue("id", idEstXSemestre);
                     int newId = (int)insertCmd.ExecuteScalar();
-                    MessageBox.Show($"Entrada registrada exitosamente. ID Asistencia: {newId}");
+
+                    var msg = new Form();
+                    var timer = new System.Windows.Forms.Timer();
+                    timer.Interval = 3000;
+                    timer.Tick += (s, e) => { msg.Close(); timer.Stop(); };
+                    timer.Start();
+                    MessageBox.Show(msg, $"Entrada registrada exitosamente. ID Asistencia: {newId}", "Información");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al registrar asistencia: " + ex.Message);
+                var msg = new Form();
+                var timer = new System.Windows.Forms.Timer();
+                timer.Interval = 3000;
+                timer.Tick += (s, e) => { msg.Close(); timer.Stop(); };
+                timer.Start();
+                MessageBox.Show(msg, "Error al registrar asistencia: " + ex.Message, "Error");
             }
         }
 

@@ -12,14 +12,31 @@ namespace Huellero.Frontend.Usuario
     public partial class ListaUsuarioModel : Form
     {
         private readonly GetUsuarios _usuarioController;
-        private readonly string rutaEditar = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Recursos", "IconoEditar.png");
+        private readonly string rutaEditar = Path.Combine(Application.StartupPath, "Recursos", "IconoEditar.png");
+        private Image iconoEditar;
 
         public ListaUsuarioModel()
         {
             InitializeComponent();
             _usuarioController = new GetUsuarios();
+            CargarIconoEditar();
             ConfigurarDataGridView();
             CargarUsuariosAsync();
+        }
+
+        private void CargarIconoEditar()
+        {
+            if (File.Exists(rutaEditar))
+            {
+                using (FileStream stream = new FileStream(rutaEditar, FileMode.Open, FileAccess.Read))
+                {
+                    iconoEditar = Image.FromStream(stream);
+                }
+            }
+            else
+            {
+                MessageBox.Show("El icono de edición no se encontró en: " + rutaEditar, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void ConfigurarDataGridView()
@@ -36,6 +53,8 @@ namespace Huellero.Frontend.Usuario
                 ImageLayout = DataGridViewImageCellLayout.Zoom
             };
             dataGridView1.Columns.Add(editarColumn);
+
+            dataGridView1.CellContentClick -= DataGridView1_CellContentClick;
             dataGridView1.CellContentClick += DataGridView1_CellContentClick;
         }
 
@@ -52,8 +71,6 @@ namespace Huellero.Frontend.Usuario
                 }
 
                 dataGridView1.Rows.Clear();
-
-                Image iconoEditar = File.Exists(rutaEditar) ? Image.FromFile(rutaEditar) : null;
 
                 foreach (var usuario in usuarios)
                 {
